@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SunbeamAFNetworkingService_Example' do
+  pod 'SunbeamAFNetworkingService', :path => '../'
+
+  target 'SunbeamAFNetworkingService_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
