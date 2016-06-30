@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-a simple structure for AFNetworking.
+a simple structure for AFNetworking, you can use it to do http/https request with extend, and it's simple.
                        DESC
 
   s.homepage         = 'https://github.com/sunbeamChen/SunbeamAFNetworkingService'
