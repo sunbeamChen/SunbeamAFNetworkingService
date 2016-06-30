@@ -1,0 +1,6 @@
+framework module Pods_SunbeamAFNetworkingService_Example {
+  umbrella header "Pods-SunbeamAFNetworkingService_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamAFNetworkingService'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SunbeamAFNetworkingService.'
+  s.summary          = 'SunbeamAFNetworkingService is a simple structure for AFNetworking.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,19 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+a simple structure for AFNetworking.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/SunbeamAFNetworkingService'
+  s.homepage         = 'https://github.com/sunbeamChen/SunbeamAFNetworkingService'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'sunbeamChen' => 'chenxun1990@126.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/SunbeamAFNetworkingService.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/sunbeamChen/SunbeamAFNetworkingService.git', :tag => s.version.to_s }
+  # s.social_media_url = 'http://sunbeamchen.github.io/'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '7.0'
+
+  s.requires_arc = true
 
   s.source_files = 'SunbeamAFNetworkingService/Classes/**/*'
   
@@ -36,7 +38,7 @@ TODO: Add long description of the pod here.
   #   'SunbeamAFNetworkingService' => ['SunbeamAFNetworkingService/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'SunbeamAFNetworkingService/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AFNetworking', '~> 2.6.3'
 end

@@ -1,0 +1,6 @@
+framework module SunbeamAFNetworkingService {
+  umbrella header "SunbeamAFNetworkingService-umbrella.h"
+
+  export *
+  module * { export * }
+}
