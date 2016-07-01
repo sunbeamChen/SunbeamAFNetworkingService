@@ -20,7 +20,10 @@
   },
   "requires_arc": true,
   "source_files": "SunbeamAFNetworkingService/Classes/**/*",
-  "prefix_header_contents": "#import \"SunbeamAFServiceContext.h\"",
+  "prefix_header_contents": [
+    "#import \"SunbeamAFServiceContext.h\"",
+    "#import \"SunbeamAFSingletonService.h\""
+  ],
   "public_header_files": "SunbeamAFNetworkingService/Classes/**/*.h",
   "dependencies": {
     "AFNetworking": [

@@ -3,3 +3,4 @@
 #endif
 
 #import "SunbeamAFServiceContext.h"
+#import "SunbeamAFSingletonService.h"
