@@ -114,7 +114,7 @@ SAF_singleton_implementation(SunbeamAFRequestGenerator)
         }
     }
     
-    return [SunbeamAFRequest getSAFRequest:requestType request:mutableRequest urlString:urlString headerParameters:headerParams urlParameters:urlParams bodyParameters:bodyParams downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath];
+    return [SunbeamAFRequest getSAFRequest:requestType request:mutableRequest urlString:urlString headerParameters:[headerParams mutableCopy] urlParameters:[urlParams mutableCopy] bodyParameters:[bodyParams mutableCopy] downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath];
 }
 
 @end

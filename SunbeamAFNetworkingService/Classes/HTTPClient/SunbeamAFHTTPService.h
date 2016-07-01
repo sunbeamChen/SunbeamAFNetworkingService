@@ -38,7 +38,7 @@ SAF_singleton_interface(SunbeamAFHTTPService)
  *
  *  @param requestId 请求id
  */
-- (void) cancelSAFRequestWithRequestId:(NSString *) requestId;
+- (void) cancelSAFRequestWithRequestId:(NSNumber *) requestId;
 
 /**
  *  取消置顶request id list的请求

@@ -18,7 +18,7 @@ SAF_singleton_implementation(SunbeamAFHTTPClient)
 {
     SunbeamAFRequest* request = [[SunbeamAFRequestGenerator sharedSunbeamAFRequestGenerator] generateSAFRequest:requestType serviceIdentifier:servieIdentifier requestParams:params methodName:methodName];
     
-    return [[SunbeamAFHTTPService sharedSunbeamAFHTTPService] sunbeamAFRequest:request success:success fail:fail];
+    return [[[SunbeamAFHTTPService sharedSunbeamAFHTTPService] sunbeamAFRequest:request success:success fail:fail] integerValue];
 }
 
 - (void) cancelRequestWithRequestId:(NSNumber *) requestId
