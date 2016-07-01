@@ -38,7 +38,11 @@ a simple structure for AFNetworking, you can use it to do http/https request wit
   #   'SunbeamAFNetworkingService' => ['SunbeamAFNetworkingService/Assets/*.png']
   # }
 
+  s.prefix_header_contents = '#import "SunbeamAFServiceContext.h"'
+
   s.public_header_files = 'SunbeamAFNetworkingService/Classes/**/*.h'
+
   # s.frameworks = 'UIKit', 'MapKit'
+
   s.dependency 'AFNetworking', '~> 2.6.3'
 end
