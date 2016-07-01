@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SunbeamAFServiceContext.h"
+
 @interface SunbeamAFRequest : NSObject
 
 // 请求类型

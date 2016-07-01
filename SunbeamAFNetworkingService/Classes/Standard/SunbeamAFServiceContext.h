@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SunbeamAFSingletonService.h"
+
 typedef NS_ENUM(NSInteger, SAFRequestType) {
     SAFRequestTypeGET = 0,      // GET请求
     SAFRequestTypePOST = 1,     // POST请求
@@ -16,6 +18,8 @@ typedef NS_ENUM(NSInteger, SAFRequestType) {
 };
 
 @interface SunbeamAFServiceContext : NSObject
+
+
 
 // SSL网络证书配置文件名称
 @property (nonatomic, copy) NSString* securitySSLCer;

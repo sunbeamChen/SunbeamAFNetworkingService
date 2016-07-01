@@ -38,7 +38,7 @@ a simple structure for AFNetworking, you can use it to do http/https request wit
   #   'SunbeamAFNetworkingService' => ['SunbeamAFNetworkingService/Assets/*.png']
   # }
 
-  s.prefix_header_file = 'SunbeamAFNetworkingService/Classes/Helper/SunbeamAFPrefix.pch'
+  #s.prefix_header_file = 'SunbeamAFNetworkingService/Classes/Helper/SunbeamAFPrefix.pch'
 
   #s.prefix_header_contents = '#import "SunbeamAFServiceContext.h"','#import "SunbeamAFSingletonService.h"'
 
