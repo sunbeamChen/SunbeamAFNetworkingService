@@ -10,4 +10,7 @@
 
 @implementation SunbeamAFServiceContext
 
+// 单例
+SAF_singleton_implementation(SunbeamAFServiceContext)
+
 @end
