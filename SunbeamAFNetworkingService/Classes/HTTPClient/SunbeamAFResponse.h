@@ -22,10 +22,10 @@
 // 文件上传路径
 @property (nonatomic, copy, readonly) NSString* uploadFilePath;
 
-// 响应错误
-@property (nonatomic, strong, readonly) NSError* responseError;
+// 响应错误码
+@property (nonatomic, assign, readonly) NSInteger networkResponseError;
 
 // 获取响应实例
-+ (SunbeamAFResponse *) getSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath responseError:(NSError *) responseError;
++ (SunbeamAFResponse *) getSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath networkResponseError:(NSInteger) networkResponseError;
 
 @end

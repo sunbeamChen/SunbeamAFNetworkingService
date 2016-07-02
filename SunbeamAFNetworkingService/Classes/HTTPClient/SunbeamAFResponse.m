@@ -22,32 +22,32 @@
 // 文件上传路径
 @property (nonatomic, copy, readwrite) NSString* uploadFilePath;
 
-// 响应错误
-@property (nonatomic, strong, readwrite) NSError* responseError;
+// 响应错误码
+@property (nonatomic, assign, readwrite) NSInteger networkResponseError;
 
 // 初始化响应实例
-- (instancetype) initSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath responseError:(NSError *) responseError;
+- (instancetype) initSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath networkResponseError:(NSInteger) networkResponseError;
 
 @end
 
 @implementation SunbeamAFResponse
 
-- (instancetype)initSAFResponse:(NSInteger)requestId responseData:(id)responseData downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath responseError:(NSError *)responseError
+- (instancetype)initSAFResponse:(NSInteger)requestId responseData:(id)responseData downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath networkResponseError:(NSInteger)networkResponseError
 {
     if (self = [super init]) {
         self.requestId = requestId;
         self.responseData = responseData;
         self.downloadFileSavePath = downloadFileSavePath;
         self.uploadFilePath = uploadFilePath;
-        self.responseError = responseError;
+        self.networkResponseError = networkResponseError;
     }
     
     return self;
 }
 
-+ (SunbeamAFResponse *)getSAFResponse:(NSInteger)requestId responseData:(id)responseData downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath responseError:(NSError *)responseError
++ (SunbeamAFResponse *)getSAFResponse:(NSInteger)requestId responseData:(id)responseData downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath networkResponseError:(NSInteger) networkResponseError
 {
-    SunbeamAFResponse* safResponse = [[SunbeamAFResponse alloc] initSAFResponse:requestId responseData:responseData downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath responseError:responseError];
+    SunbeamAFResponse* safResponse = [[SunbeamAFResponse alloc] initSAFResponse:requestId responseData:responseData downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath networkResponseError:networkResponseError];
     
     return safResponse;
 }
