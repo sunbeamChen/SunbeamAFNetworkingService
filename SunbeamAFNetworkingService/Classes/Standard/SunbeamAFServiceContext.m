@@ -43,7 +43,26 @@ SAF_singleton_implementation(SunbeamAFServiceContext)
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        self.networkStatus = status;
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                self.networkStatus = SAFNetworkStatusUnknown;
+                break;
+                
+            case AFNetworkReachabilityStatusNotReachable:
+                self.networkStatus = SAFNetworkStatusNotReachable;
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                self.networkStatus = SAFNetworkStatusReachableViaWWAN;
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                self.networkStatus = SAFNetworkStatusReachableViaWiFi;
+                break;
+                
+            default:
+                break;
+        }
         
         @synchronized(self)
         {
