@@ -28,6 +28,9 @@ typedef NS_ENUM(NSInteger, SAFNetworkStatus) {
     SAFNetworkStatusReachableViaWiFi = 2,   // wifi
 };
 
+// 网络状态发生变化时发送notification
+# define SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME @"network_status_changed_notification"
+
 // 网络请求系统错误
 typedef NS_ENUM(NSInteger, SAFNetworkSystemError) {
     SAFNetworkSystemErrorDefault = -1,  // 默认发起请求

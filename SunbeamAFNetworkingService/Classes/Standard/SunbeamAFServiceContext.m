@@ -66,8 +66,7 @@ SAF_singleton_implementation(SunbeamAFServiceContext)
         
         @synchronized(self)
         {
-            NSNotification *notificationPost = [NSNotification notificationWithName:@"network_status_changed_notification" object:self userInfo:nil];
-            
+            NSNotification *notificationPost = [NSNotification notificationWithName:SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME object:self userInfo:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotification:notificationPost];
             });
