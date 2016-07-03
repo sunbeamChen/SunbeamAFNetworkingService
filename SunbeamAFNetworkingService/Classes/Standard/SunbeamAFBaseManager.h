@@ -68,7 +68,7 @@
 
 - (NSString *) serviceIdentifier;
 
-- (SAFRequestType) sunbeamAFRequestType;
+- (SAFRequestType) requestType;
 
 @optional
 - (void) cleanData;

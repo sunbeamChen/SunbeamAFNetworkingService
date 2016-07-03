@@ -133,7 +133,7 @@
     
     // 先检查一下是否有缓存,如果有做缓存，则直接从缓存中取
     // 实际网络请求
-    requestId = [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadSAFRequestWithParams:self.child.sunbeamAFRequestType withParams:params serviceIdentifier:self.child.serviceIdentifier methodName:self.child.methodName success:^(SunbeamAFResponse *response) {
+    requestId = [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadSAFRequestWithParams:self.child.requestType withParams:params serviceIdentifier:self.child.serviceIdentifier methodName:self.child.methodName success:^(SunbeamAFResponse *response) {
         [self successedOnCallingAPI:response];
     } fail:^(SunbeamAFResponse *response) {
         [self failedOnCallingAPI:response];
