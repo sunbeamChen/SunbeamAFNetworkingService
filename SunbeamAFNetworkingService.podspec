@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SunbeamAFNetworkingService'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'SunbeamAFNetworkingService is a simple structure for AFNetworking.'
 
 # This description is used to generate tags and improve search results.
@@ -42,7 +42,13 @@ a simple structure for AFNetworking, you can use it to do http/https request wit
 
   #s.prefix_header_contents = '#import "SunbeamAFServiceContext.h"','#import "SunbeamAFSingletonService.h"'
 
-  s.public_header_files = 'SunbeamAFNetworkingService/Classes/**/*.h'
+  #s.public_header_files = 'SunbeamAFNetworkingService/Classes/**/*.h'
+
+  s.private_header_files = 'SunbeamAFNetworkingService/Classes/Helper/*.h'
+
+  s.private_header_files = 'SunbeamAFNetworkingService/Classes/HTTPClient/*.h'
+
+  s.private_header_files = 'SunbeamAFNetworkingService/Classes/Helper/*.h'
 
   # s.frameworks = 'UIKit', 'MapKit'
 

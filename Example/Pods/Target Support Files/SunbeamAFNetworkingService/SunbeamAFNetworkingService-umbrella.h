@@ -1,7 +1,5 @@
 #import <UIKit/UIKit.h>
 
-#import "SunbeamAFSingletonService.h"
-#import "SunbeamAFUtil.h"
 #import "SunbeamAFHTTPClient.h"
 #import "SunbeamAFHTTPService.h"
 #import "SunbeamAFRequest.h"
