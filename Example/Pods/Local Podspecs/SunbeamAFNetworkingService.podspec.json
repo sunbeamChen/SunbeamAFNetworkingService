@@ -23,7 +23,8 @@
   "public_header_files": [
     "SunbeamAFNetworkingService/Classes/SunbeamAFNetworkingService.h",
     "SunbeamAFNetworkingService/Classes/Standard/*.h",
-    "SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h"
+    "SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h",
+    "SunbeamAFNetworkingService/Classes/Helper/SunbeamAFSingletonService.h"
   ],
   "dependencies": {
     "AFNetworking": [

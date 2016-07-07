@@ -6,6 +6,7 @@
 #import "SunbeamAFServiceContext.h"
 #import "SunbeamAFServiceFactory.h"
 #import "SunbeamAFResponse.h"
+#import "SunbeamAFSingletonService.h"
 
 FOUNDATION_EXPORT double SunbeamAFNetworkingServiceVersionNumber;
 FOUNDATION_EXPORT const unsigned char SunbeamAFNetworkingServiceVersionString[];

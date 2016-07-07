@@ -42,7 +42,7 @@ a simple structure for AFNetworking, you can use it to do http/https request wit
 
   #s.prefix_header_contents = '#import "SunbeamAFServiceContext.h"','#import "SunbeamAFSingletonService.h"'
 
-  s.public_header_files = 'SunbeamAFNetworkingService/Classes/SunbeamAFNetworkingService.h','SunbeamAFNetworkingService/Classes/Standard/*.h','SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h'
+  s.public_header_files = 'SunbeamAFNetworkingService/Classes/SunbeamAFNetworkingService.h','SunbeamAFNetworkingService/Classes/Standard/*.h','SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h','SunbeamAFNetworkingService/Classes/Helper/SunbeamAFSingletonService.h'
 
   # s.frameworks = 'UIKit', 'MapKit'
 
