@@ -19,3 +19,5 @@ FOUNDATION_EXPORT const unsigned char SunbeamAFNetworkingServiceVersionString[];
 #import "SunbeamAFBaseService.h"
 // service factory
 #import "SunbeamAFServiceFactory.h"
+// http response
+#import "SunbeamAFResponse.h"

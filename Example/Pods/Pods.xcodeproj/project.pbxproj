@@ -11,12 +11,10 @@
 		048057B786AEF2C6C228C3236985CD19 /* SunbeamAFHTTPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF43701F3AB10BF08D24D3B283D9D72 /* SunbeamAFHTTPService.m */; };
 		062C58F582B5779CB7AA8CF3A55B8642 /* SunbeamAFNetworkingService-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D694EEE35CF0506C0504FE3399A069D /* SunbeamAFNetworkingService-dummy.m */; };
 		081A50535FCDF50D0118223459790167 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B78CCF0B6DB81F206EB338F172DAFA51 /* UIImageView+AFNetworking.m */; };
-		081DC9034FE95CBB137E11B6BACF97A8 /* SunbeamAFSingletonService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F51F25AE4A25839D1CB614BDB3B90F3 /* SunbeamAFSingletonService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		120D139FCCCB3505FD1984CD1D0D095A /* SunbeamAFResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 51C7D428C052F441692D51129DCBF8E1 /* SunbeamAFResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1389748BE24F9D2223187CB20D9A020C /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 114AFB315A676864A107425F120976A8 /* AFURLRequestSerialization.m */; };
 		19DA48D1B8DF89FE4182801ECCEE9CAB /* SunbeamAFUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3F7CA167477378C6D17316FD56028 /* SunbeamAFUtil.m */; };
 		1A15E1DAB1BF63371AE5ADFAED9169E5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A363D19C9F8FF2723FBF1B2AE6F4A68E /* UIRefreshControl+AFNetworking.m */; };
-		1CAB3B0527DA6143713863609C267276 /* SunbeamAFHTTPService.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B99BAA09BE2A93171905C88085C19D /* SunbeamAFHTTPService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EA06503C7AF1CA5E13950E3E7D7830E /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4004CB328D9B73234395795631AF675A /* AFNetworkActivityIndicatorManager.m */; };
 		27840D8AC96D3180626B40D4AE7A715F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C739F1127D7E94D9137583AECFCC0E /* Foundation.framework */; };
 		290353FFD70C6FED0E88244849792541 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C358947BFE35B88AEB42B0947FD6464 /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,11 +22,14 @@
 		2F7804254EC033FF6E984F040434827E /* SunbeamAFNetworkingService-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 860241D9B1F1A0824264BB94B4E66BB1 /* SunbeamAFNetworkingService-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FFCF926D5A0438042644F3AD65C3E36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C739F1127D7E94D9137583AECFCC0E /* Foundation.framework */; };
 		32BE0FB08D9ECD2974197D862E320E36 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = B8DC67FFD3D275F4DF82652F3312F816 /* UIWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C840E3DA3C68B5D2E2CBB22E2424A0 /* SunbeamAFRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 58374585BF059E74A80E20233D00D722 /* SunbeamAFRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		34BEE08ED8F8B9B3B939D4D732CFBEFE /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D5E80BB7AD3CDF3B4215CF698ECA501 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34FB235B685F1992EB9E4FD56BB14102 /* SunbeamAFHTTPService.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B99BAA09BE2A93171905C88085C19D /* SunbeamAFHTTPService.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		401C2DDD1436B4AD6B3A43D775389EA4 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CD830C93513B12193D93249388C9465 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4126FC06B09C1514C4623BEF344EEDF2 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C1CE62259319F6CD331B029EF7A82654 /* AFHTTPRequestOperationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4348AF066E01B5703E5A3BE03EAAB24A /* SunbeamAFServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B76A196FC7BAD37E8DD8E93B03B3BB4 /* SunbeamAFServiceFactory.m */; };
 		43BC8D2611C04A47C0BE9FFB228E07A5 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 138828BFE2271F973228D96F337454BB /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45EC5DEDF002F53DE46FB61572E5B3C9 /* SunbeamAFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FB8623CE17BC037CEC4061C40029FD7E /* SunbeamAFUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4E32C6B26518F18DC4AB3E225B86EE88 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3963381BDC1AA7CE8B2C505AC9C17FDF /* AFSecurityPolicy.m */; };
 		4E94B8F460BF431A50D94814F7C8AF61 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = A151745DED7D09C365E2699BA154940D /* UIActivityIndicatorView+AFNetworking.m */; };
 		4F093F6FBA6E6B060CF66145CF214E14 /* AFNetworkReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FFBFEFF24E197ED8F167EE6FB25816 /* AFNetworkReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,11 +38,12 @@
 		59E32510D0201F13D14DF5CB41CD0E96 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EF139D3016A3EC169A4B9F90049B98D /* Security.framework */; };
 		5F856E826889B41B6397FDD067D29876 /* Pods-SunbeamAFNetworkingService_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E67A5AD614905FA329B3011E6563B4F6 /* Pods-SunbeamAFNetworkingService_Tests-dummy.m */; };
 		68F25493DF29423FEA798D2247A6C918 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E22A45AF58559421975884FCB04C98C /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A34BE929693CA40C8006A275996CF23 /* SunbeamAFRequestGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2922D6962EA2814B91A544712FDA1264 /* SunbeamAFRequestGenerator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6AF1D47A8D394F8BF6277B78AD8425A1 /* SunbeamAFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D1560BEF156FBC18F3A17CE51134F /* SunbeamAFRequest.m */; };
 		6FDE95FB21B7F5E1EC7A9F49489DAC62 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 25A01A070F81D39B1F4E9F9D636363DB /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70C9CBD59C6A741CE16CB63E59F0C9EA /* SunbeamAFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D03513CCF919FF46AD2888EF5E07719A /* SunbeamAFHTTPClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		76C1FA68EFCD242119622AE2CEB4D24F /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 55955BC3DD5E5A8B34E0FE76BA01651F /* AFURLResponseSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76C72D9FA8C86EBBC7E3E4AF7F0B4BB5 /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EADA5DB8B89A20DC28B3320B41F8570 /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7952BDA19F0148647AB172E1ACA1139F /* SunbeamAFUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FB8623CE17BC037CEC4061C40029FD7E /* SunbeamAFUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7999F436677B92F6DDA1C3D45B67762F /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 662F2B693F4836F935DF7B3734AABDE6 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79D287D48B2A81896F365CA21F0B27D6 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F710B9B751F58727F33992641D5ADAD7 /* UIWebView+AFNetworking.m */; };
 		846182A9DBA2121382162355B48909AE /* Pods-SunbeamAFNetworkingService_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 097AE93D26A6491D4FD630092BAD96CB /* Pods-SunbeamAFNetworkingService_Example-dummy.m */; };
@@ -55,7 +57,6 @@
 		AD19887C88E372CF7CC7EB19C53E0E39 /* SunbeamAFServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = B4890B89F6BEF7F93F15A902E5D893BB /* SunbeamAFServiceFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B42A49260E02658534FF92164B6FC311 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = D7F87B39AA3969495DC69A7AAF7D40E8 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B8909A8C3BBC0335169BAF33C118A0D2 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5461D992F0D803F0F05DF72B2849301D /* AFNetworking.framework */; };
-		BACF393AA7434FA8A72AD9CF870B7357 /* SunbeamAFRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 58374585BF059E74A80E20233D00D722 /* SunbeamAFRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB82DC2891A35AC22DD6D5CE4CAE4364 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 172D306787AA19E22B31FF2176318C67 /* UIButton+AFNetworking.m */; };
 		BFFE828E1EE9E4ABF0F89AACFDB86755 /* SunbeamAFServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 41240D8DDC89B52AA0E39BC3B22CE90B /* SunbeamAFServiceContext.m */; };
 		C087B9B3A493BC8232CBA4DB1CB47A67 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DED479CEA29303B17893955733E2B1 /* AFNetworkReachabilityManager.m */; };
@@ -64,6 +65,7 @@
 		C70AC3CB2D21E9466D55F37D6167DBA5 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 96D58E1D7B0AA67BF9713FE29B22DEEF /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B655603FB1089A5E2D28FCE12DF12F /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2853C3C9993FB94B5AE7D2D3F5DE6B43 /* AFHTTPRequestOperationManager.m */; };
 		C97AE4008327F31B46EBE7D94FFFBBE4 /* Pods-SunbeamAFNetworkingService_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DC3267E416B9970E03B46A625BC74F4 /* Pods-SunbeamAFNetworkingService_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAC991D5F86E93D665B13D177C9F42ED /* SunbeamAFSingletonService.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F51F25AE4A25839D1CB614BDB3B90F3 /* SunbeamAFSingletonService.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CEDFE191DF66B8884828359B3494F8E9 /* UIAlertView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = C181592B691B103939A6DAF8AFFEA65A /* UIAlertView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF051D17275C20E0FBF5736E3C8A0573 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FDCA45562D02A8AB196E1718874625 /* UIProgressView+AFNetworking.m */; };
 		D00D077685CD09CC0494F30DA2F9DF3C /* SunbeamAFServiceContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF7C3766B22A5E96A2DA3C996056A6C /* SunbeamAFServiceContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,14 +74,12 @@
 		D86913E8F8A1CA01D792A1DFD3AE671C /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 324C57BFE6524FBF3B9676649BD5A00D /* AFHTTPSessionManager.m */; };
 		DAFF19A4615DC4D8DFC379A0A4D7D8ED /* SunbeamAFRequestGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B8A154695E0EEE62C5C72E97DF0710 /* SunbeamAFRequestGenerator.m */; };
 		DB840EF5FD9645993A399CDE849E784C /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3935F527C2D693E1106793B5D7C31FAD /* AFURLResponseSerialization.m */; };
-		DCA478404A67B7C8714FEE090C4FAEF1 /* SunbeamAFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = D03513CCF919FF46AD2888EF5E07719A /* SunbeamAFHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF4112FFA156222BF7053EF22A8827B9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A695098C79A11A48EE128D40755A9C /* AFHTTPRequestOperation.m */; };
 		DFC29AA19504EF95C8902348017273A8 /* AFURLSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E76012BE19B2261B02D7B817AE3DECF7 /* AFURLSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E259E78EE8D9C50D571610FCB328436C /* SunbeamAFNetworkingService.h in Headers */ = {isa = PBXBuildFile; fileRef = 8322AC66B135A4AA2BC3FE0C8DF185ED /* SunbeamAFNetworkingService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E3B7843ABF4CA7C078677BB9AA7CAF45 /* SunbeamAFBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6975BFC7D0F48C13D385A5B49A9DC64E /* SunbeamAFBaseService.m */; };
 		E72E8ADD0ADE2F3BA0CC6CE7CC4EB4E9 /* Pods-SunbeamAFNetworkingService_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F134B2361F816296986592E9039521B /* Pods-SunbeamAFNetworkingService_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7FA21C38D6A1CB113BE2DA22E73B845 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCDB686F306937C504651ECBF7C24D6 /* UIAlertView+AFNetworking.m */; };
-		E7FD20A1E69D1FD0EED6D9214017C4B4 /* SunbeamAFRequestGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2922D6962EA2814B91A544712FDA1264 /* SunbeamAFRequestGenerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E89F325177F16C9B937ACDB5E8501501 /* SunbeamAFBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C048C429844A58BFB1EBFDECE01049E1 /* SunbeamAFBaseManager.m */; };
 		F2E9945B7494E20ED7DC4720A2B8CDC9 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C711F2F162049BDCC740B3AF11C79B2A /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F7BCC0CB8DFB22AB34ECE9BC5C72DD2B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9EC046EEE00CAE53FC620929325D144 /* SystemConfiguration.framework */; };
@@ -597,17 +597,17 @@
 			files = (
 				A9914791EBD4696BE925D7DD77C3D7DE /* SunbeamAFBaseManager.h in Headers */,
 				AB4B2EA269E04863FD9AE22E817A22BE /* SunbeamAFBaseService.h in Headers */,
-				DCA478404A67B7C8714FEE090C4FAEF1 /* SunbeamAFHTTPClient.h in Headers */,
-				1CAB3B0527DA6143713863609C267276 /* SunbeamAFHTTPService.h in Headers */,
+				70C9CBD59C6A741CE16CB63E59F0C9EA /* SunbeamAFHTTPClient.h in Headers */,
+				34FB235B685F1992EB9E4FD56BB14102 /* SunbeamAFHTTPService.h in Headers */,
 				2F7804254EC033FF6E984F040434827E /* SunbeamAFNetworkingService-umbrella.h in Headers */,
 				E259E78EE8D9C50D571610FCB328436C /* SunbeamAFNetworkingService.h in Headers */,
-				BACF393AA7434FA8A72AD9CF870B7357 /* SunbeamAFRequest.h in Headers */,
-				E7FD20A1E69D1FD0EED6D9214017C4B4 /* SunbeamAFRequestGenerator.h in Headers */,
+				33C840E3DA3C68B5D2E2CBB22E2424A0 /* SunbeamAFRequest.h in Headers */,
+				6A34BE929693CA40C8006A275996CF23 /* SunbeamAFRequestGenerator.h in Headers */,
 				120D139FCCCB3505FD1984CD1D0D095A /* SunbeamAFResponse.h in Headers */,
 				D00D077685CD09CC0494F30DA2F9DF3C /* SunbeamAFServiceContext.h in Headers */,
 				AD19887C88E372CF7CC7EB19C53E0E39 /* SunbeamAFServiceFactory.h in Headers */,
-				081DC9034FE95CBB137E11B6BACF97A8 /* SunbeamAFSingletonService.h in Headers */,
-				7952BDA19F0148647AB172E1ACA1139F /* SunbeamAFUtil.h in Headers */,
+				CAC991D5F86E93D665B13D177C9F42ED /* SunbeamAFSingletonService.h in Headers */,
+				45EC5DEDF002F53DE46FB61572E5B3C9 /* SunbeamAFUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
