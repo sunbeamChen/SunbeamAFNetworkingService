@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - SunbeamAFNetworkingService (0.2.3):
+  - SunbeamAFNetworkingService (0.2.4):
     - AFNetworking (~> 2.6.3)
 
 DEPENDENCIES:
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  SunbeamAFNetworkingService: a93d256c0fa5c6838437b6aab087674de273a387
+  SunbeamAFNetworkingService: 5c47d198eb6a55d5016ce05ce6c83006773ee69c
 
 PODFILE CHECKSUM: 70d4b37e9b9c8a3cdd1f99f02fdb2ce94e462bd9
 

@@ -54,9 +54,9 @@
 #pragma mark - 成功或者失败回调处理
 @protocol SAFManagerCallbackDelegate <NSObject>
 
-- (BOOL) managerCallbackSuccess:(SunbeamAFBaseManager *) manager;
+- (void) managerCallbackSuccess:(SunbeamAFBaseManager *) manager;
 
-- (BOOL) managerCallbackFail:(SunbeamAFBaseManager *) manager;
+- (void) managerCallbackFail:(SunbeamAFBaseManager *) manager;
 
 @end
 
