@@ -153,7 +153,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         
         NSLog(@"GET/POST响应码为[%d]成功返回数据为:%@",statusCode,returnValue);
         
-        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:nil networkResponseError:[self getNetworkResponseError:nil]]):nil;
+        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:nil errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -168,7 +168,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         
         NSLog(@"GET/POST失败返回数据为:[%d:%@]",(int)[error code],[error localizedDescription]);
         
-        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:nil networkResponseError:[self getNetworkResponseError:error]]):nil;
+        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
         
     }];
     
@@ -207,7 +207,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         
         NSLog(@"DOWNLOAD响应码为[%d]返回数据为:%@",statusCode,responseObject);
         
-        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil networkResponseError:[self getNetworkResponseError:nil]]):nil;
+        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -220,7 +220,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
             [self.dispatchTable removeObjectForKey:requestId];
         }
         
-        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil networkResponseError:[self getNetworkResponseError:error]]):nil;
+        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
         
     }];
     
@@ -255,7 +255,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         
         NSLog(@"UPLOAD响应码为[%d]返回数据为:%@",statusCode,responseObject);
         
-        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath networkResponseError:[self getNetworkResponseError:nil]]):nil;
+        success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -268,7 +268,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
             [self.dispatchTable removeObjectForKey:requestId];
         }
         
-        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath networkResponseError:[self getNetworkResponseError:error]]):nil;
+        fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
     }];
     
     NSLog(@"上传文件请求header：[%@]", httpRequestOperation.request.allHTTPHeaderFields);
@@ -646,6 +646,22 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
     } else {
         return SAFNetworkSystemErrorRequestSuccess;
     }
+}
+
+- (NSString *) getNetworkResponseErrorMessage:(NSError *) error
+{
+    if (error) {
+        NSString* message = @"network is not reachable";
+        //待改进，目前处理是：除了超时、服务器响应异常以外，所有错误都当成是无网络
+        if (error.code == NSURLErrorTimedOut) {
+            message = @"network request is timeout";
+        } else if (error.code == NSURLErrorBadServerResponse) {
+            message = @"server response is error";
+        }
+        return message;
+    }
+    
+    return nil;
 }
 
 //- (AFURLSessionManager *)sessionManager

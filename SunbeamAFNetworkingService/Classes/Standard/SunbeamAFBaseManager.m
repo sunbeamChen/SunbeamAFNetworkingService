@@ -88,7 +88,7 @@
      */
     if (![self isReachable])
     {
-        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil networkResponseError:SAFNetworkSystemErrorNoNetwork];
+        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:SAFNetworkSystemErrorNoNetwork message:@"network is not reachable"];
         
         [self failedOnCallingAPI:self.httpResponse];
         
@@ -100,7 +100,7 @@
     if ([self isLoading])
     {
         // 该处采取的策略是阻止新的请求，另外一种策略是取消旧的请求，执行新的请求(待实际测试判断)
-        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil networkResponseError:SAFNetworkSystemErrorRequestIsRuning];
+        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:SAFNetworkSystemErrorRequestIsRuning message:@"network request is busy"];
         
         [self failedOnCallingAPI:self.httpResponse];
         

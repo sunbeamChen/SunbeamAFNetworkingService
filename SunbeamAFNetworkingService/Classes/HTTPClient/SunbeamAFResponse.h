@@ -23,9 +23,12 @@
 @property (nonatomic, copy, readonly) NSString* uploadFilePath;
 
 // 响应错误码
-@property (nonatomic, assign, readonly) NSInteger networkResponseError;
+@property (nonatomic, assign, readonly) NSInteger errorcode;
+
+// 响应错误信息
+@property (nonatomic, copy, readonly) NSString* message;
 
 // 获取响应实例
-+ (SunbeamAFResponse *) getSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath networkResponseError:(NSInteger) networkResponseError;
++ (SunbeamAFResponse *) getSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath errorcode:(NSInteger) errorcode message:(NSString *) message;
 
 @end

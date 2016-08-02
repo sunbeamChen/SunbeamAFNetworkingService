@@ -1,8 +1,7 @@
 {
   "name": "SunbeamAFNetworkingService",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "summary": "SunbeamAFNetworkingService is a simple structure for AFNetworking.",
-  "description": "a simple structure for AFNetworking, you can use it to do http/https request with extend, and it's simple.",
   "homepage": "https://github.com/sunbeamChen/SunbeamAFNetworkingService",
   "license": {
     "type": "MIT",
@@ -13,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/sunbeamChen/SunbeamAFNetworkingService.git",
-    "tag": "0.2.2"
+    "tag": "0.2.3"
   },
   "platforms": {
     "ios": "7.0"
