@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) AFSecurityPolicy* customSecurityPolicy;
 
+@property (nonatomic, strong) AFSecurityPolicy* defaultSecurityPolicy;
+
 //@property (nonatomic, strong) AFURLSessionManager* sessionManager;
 //
 //@property (nonatomic, strong) AFHTTPSessionManager* httpSessionManager;
@@ -597,9 +599,18 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
     
     securityPolicy.validatesDomainName = YES;
     
-    /**** SSL Pinning ****/
-    
     return securityPolicy;
+}
+
+- (AFSecurityPolicy *)defaultSecurityPolicy
+{
+    AFSecurityPolicy* securityPolicyForZAPI = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    
+    securityPolicyForZAPI.allowInvalidCertificates = YES;
+    
+    securityPolicyForZAPI.validatesDomainName = NO;
+    
+    return securityPolicyForZAPI;
 }
 
 - (AFHTTPRequestOperationManager *)operationManager
@@ -610,15 +621,11 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         //_operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
         _operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
-        //        AFSecurityPolicy* securityPolicyForZAPI = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-        //
-        //        securityPolicyForZAPI.allowInvalidCertificates = YES;
-        //
-        //        securityPolicyForZAPI.validatesDomainName = NO;
-        //
-        //        _operationManager.securityPolicy = securityPolicyForZAPI;
-        
-        _operationManager.securityPolicy = self.customSecurityPolicy;
+        if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCer) {
+            _operationManager.securityPolicy = self.customSecurityPolicy;
+        } else {
+            _operationManager.securityPolicy = self.defaultSecurityPolicy;
+        }
     }
     
     return _operationManager;
