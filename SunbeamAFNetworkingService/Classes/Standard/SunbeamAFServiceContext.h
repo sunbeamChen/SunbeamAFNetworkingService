@@ -45,7 +45,9 @@ typedef NS_ENUM(NSInteger, SAFNetworkSystemError) {
 #define SunbeamAFRequestTimeoutInterval 10.0f
 
 // 请求参数key设置
-#define SunbeamAFRequestHeaderParamsKey @"saf_request_header"
+#define SunbeamAFRequestHeaderContentType @"saf_request_header_content_type"
+
+#define SunbeamAFRequestHeaderParamsKey @"saf_request_header_params"
 
 #define SunbeamAFRequestUrlParamsKey @"saf_request_url"
 
