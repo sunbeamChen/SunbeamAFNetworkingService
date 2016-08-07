@@ -78,9 +78,10 @@ SAF_singleton_implementation(SunbeamAFRequestGenerator)
     
     if (contentType != nil) {
         requestSerializer = self.httpRequestSerializer;
-        [requestSerializer setValue:contentType forHTTPHeaderField:@""];
+        [requestSerializer setValue:contentType forHTTPHeaderField:@"Content-Type"];
     } else {
         requestSerializer = self.httpJsonRequestSerializer;
+        [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     }
     
     // 初始化url request
