@@ -585,11 +585,23 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
 - (AFSecurityPolicy *)customSecurityPolicy
 {
     /**** SSL Pinning ****/
-    NSString *cerPath = nil;
+    NSData *certData = nil;
     
-    cerPath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCer ofType:@"cer"];
-    
-    NSData *certData = [NSData dataWithContentsOfFile:cerPath];
+    if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName) {
+        // 自定义bundle
+        NSString* cerBundlePath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName ofType:@"bundle"];
+        
+        NSBundle* cerBundle = [NSBundle bundleWithPath:cerBundlePath];
+        
+        NSString *cerPath = [cerBundle pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
+        
+        certData = [NSData dataWithContentsOfFile:cerPath];
+    } else {
+        // main bundle
+        NSString *cerPath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
+        
+        certData = [NSData dataWithContentsOfFile:cerPath];
+    }
     
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
     
@@ -621,7 +633,7 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
         //_operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
         _operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         
-        if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCer) {
+        if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName) {
             _operationManager.securityPolicy = self.customSecurityPolicy;
         } else {
             _operationManager.securityPolicy = self.defaultSecurityPolicy;

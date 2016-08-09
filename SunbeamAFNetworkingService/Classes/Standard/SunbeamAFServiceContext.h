@@ -69,7 +69,8 @@ typedef NS_ENUM(NSInteger, SAFNetworkSystemError) {
 SAF_singleton_interface(SunbeamAFServiceContext)
 
 // SSL网络证书配置文件名称，当该值为nil时，将采用默认的SSL规则（允许非法的证书，不对域名进行校验）
-@property (nonatomic, copy) NSString* securitySSLCer;
+@property (nonatomic, copy) NSString* securitySSLCerBundleName;
+@property (nonatomic, copy) NSString* securitySSLCerFileName;
 
 // 网络请求超时时间设置
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
