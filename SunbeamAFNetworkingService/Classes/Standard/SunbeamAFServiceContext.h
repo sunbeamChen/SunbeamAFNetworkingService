@@ -45,23 +45,17 @@ typedef NS_ENUM(NSInteger, SAFNetworkSystemError) {
 #define SunbeamAFRequestTimeoutInterval 10.0f
 
 // 请求参数key设置
-#define SunbeamAFRequestHeaderContentType @"saf_request_header_content_type"
+#define SunbeamAFRequestHeaderContentType @"saf_request_header_content_type_string"
 
-#define SunbeamAFRequestHeaderParamsKey @"saf_request_header_params"
+#define SunbeamAFRequestHeaderParamsKey @"saf_request_header_params_dict"
 
-#define SunbeamAFRequestUrlParamsKey @"saf_request_url"
+#define SunbeamAFRequestUrlParamsKey @"saf_request_url_dict"
 
-#define SunbeamAFRequestBodyParamsKey @"saf_request_body"
+#define SunbeamAFRequestBodyParamsKey @"saf_request_body_dict"
 
-#define SunbeamAFRequestDownloadFileSavePathParamsKey @"saf_request_download_file_save_path"
+#define SunbeamAFRequestDownloadFileSavePathParamsKey @"saf_request_download_file_save_path_string"
 
-#define SunbeamAFRequestUploadFilePathParamsKey @"saf_request_upload_file_path"
-
-// 上传文件时form data中key值
-#define SunbeamAFRequestUploadFileFormDataFileKey @"file"
-
-// 上传文件时认证key值
-#define SunbeamAFRequestUploadFileFormDataTokenKey @"token"
+#define SunbeamAFRequestUploadFilePathParamsKey @"saf_request_upload_file_path_string"
 
 @interface SunbeamAFServiceContext : NSObject
 
@@ -71,6 +65,9 @@ SAF_singleton_interface(SunbeamAFServiceContext)
 // SSL网络证书配置文件名称，当该值为nil时，将采用默认的SSL规则（允许非法的证书，不对域名进行校验）
 @property (nonatomic, copy) NSString* securitySSLCerBundleName;
 @property (nonatomic, copy) NSString* securitySSLCerFileName;
+
+// 上传接口中上传文件时设置的key值
+@property (nonatomic, copy) NSString* uploadFileKey;
 
 // 网络请求超时时间设置
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;

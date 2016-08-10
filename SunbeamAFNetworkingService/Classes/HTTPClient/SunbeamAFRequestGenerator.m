@@ -109,9 +109,18 @@ SAF_singleton_implementation(SunbeamAFRequestGenerator)
         case SAFRequestTypeUpload:
         {
             mutableRequest = [requestSerializer multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                [formData appendPartWithFileURL:[NSURL fileURLWithPath:uploadFilePath] name:SunbeamAFRequestUploadFileFormDataFileKey error:nil];
                 
-                [formData appendPartWithFormData:[[bodyParams objectForKey:SunbeamAFRequestUploadFileFormDataTokenKey] dataUsingEncoding:NSUTF8StringEncoding] name:SunbeamAFRequestUploadFileFormDataTokenKey];
+                if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].uploadFileKey) {
+                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:uploadFilePath] name:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].uploadFileKey error:nil];
+                } else {
+                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:uploadFilePath] name:@"file" error:nil];
+                }
+                
+                if (bodyParams != nil && [bodyParams count] > 0) {
+                    for (NSString* key in [bodyParams allKeys]) {
+                        [formData appendPartWithFormData:[[bodyParams objectForKey:key] dataUsingEncoding:NSUTF8StringEncoding] name:key];
+                    }
+                }
             } error:nil];
             break;
         }
