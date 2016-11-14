@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "SunbeamAFBaseService.h"
-
-#import "SunbeamAFSingletonService.h"
 
 @protocol SAFServiceFactoryProtocol <NSObject>
 

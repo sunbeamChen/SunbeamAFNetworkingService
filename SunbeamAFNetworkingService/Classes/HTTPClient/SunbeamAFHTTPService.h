@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "SunbeamAFRequest.h"
-
 #import "SunbeamAFResponse.h"
-
-#import "SunbeamAFSingletonService.h"
-
 #import "SunbeamAFServiceContext.h"
 
 typedef void(^SunbeamAFCallback)(SunbeamAFResponse* response);

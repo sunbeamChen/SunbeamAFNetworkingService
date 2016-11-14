@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "SunbeamAFHTTPService.h"
 
 @interface SunbeamAFHTTPClient : NSObject

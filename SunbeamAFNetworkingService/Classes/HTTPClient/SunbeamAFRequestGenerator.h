@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SunbeamAFRequest.h"
-#import "SunbeamAFSingletonService.h"
 
 @interface SunbeamAFRequestGenerator : NSObject
 

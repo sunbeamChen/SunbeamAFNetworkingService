@@ -7,12 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "SunbeamAFResponse.h"
-
 #import "SunbeamAFServiceContext.h"
 
-#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.10"
+#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.11"
 
 @class SunbeamAFBaseManager;
 
