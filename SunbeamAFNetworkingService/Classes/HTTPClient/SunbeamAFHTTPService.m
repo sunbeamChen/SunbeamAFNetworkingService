@@ -58,7 +58,18 @@
 
 @implementation SunbeamAFHTTPService
 
-SAF_singleton_implementation(SunbeamAFHTTPService)
+/**
+ *  单例
+ */
++ (SunbeamAFHTTPService *) sharedSunbeamAFHTTPService
+{
+    static SunbeamAFHTTPService *sharedInstance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 - (NSNumber *)sunbeamAFRequest:(SunbeamAFRequest *)request success:(SunbeamAFCallback)success fail:(SunbeamAFCallback)fail
 {
@@ -137,53 +148,35 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
  */
 - (NSNumber *) afAPIRequest_get_low:(SunbeamAFRequest *) requestModel success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail requestId:(NSNumber *) requestId
 {
-    AFHTTPRequestOperation *httpRequestOperation = [self.operationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    AFHTTPRequestOperationManager* requestOperationManager = [self getRequestOperationManager:requestModel];
+    AFHTTPRequestOperation *httpRequestOperation = [requestOperationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
-            
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         int statusCode = (int)operation.response.statusCode;
-        
         NSDictionary *returnValue = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-        
         NSLog(@"GET/POST响应码为[%d]成功返回数据为:%@",statusCode,returnValue);
-        
         success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:nil errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         NSLog(@"GET/POST失败返回数据为:[%d:%@]",(int)[error code],[error localizedDescription]);
-        
         fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
-        
     }];
-    
     NSLog(@"HTTPS请求url：[%@]", requestModel.urlString);
-    
     NSLog(@"HTTPS请求header：[%@]", httpRequestOperation.request.allHTTPHeaderFields);
-    
     NSLog(@"HTTPS请求body：[%@]", [[NSString alloc] initWithData:httpRequestOperation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    
     self.dispatchTable[requestId] = httpRequestOperation;
-    
     [self.operationQueue addOperation:httpRequestOperation];
-    
     return requestId;
 }
 
@@ -194,97 +187,69 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
 
 - (NSNumber *) afAPIRequest_download_low:(SunbeamAFRequest *) requestModel success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail requestId:(NSNumber *) requestId
 {
-    AFHTTPRequestOperation *httpRequestOperation = [self.operationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    AFHTTPRequestOperationManager* requestOperationManager = [self getRequestOperationManager:requestModel];
+    AFHTTPRequestOperation *httpRequestOperation = [requestOperationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         int statusCode = (int)operation.response.statusCode;
-        
         NSLog(@"DOWNLOAD响应码为[%d]返回数据为:%@",statusCode,responseObject);
-        
         success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:requestModel.downloadFileSavePath uploadFilePath:nil errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
-        
     }];
-    
     httpRequestOperation.outputStream = [NSOutputStream outputStreamToFileAtPath:requestModel.downloadFileSavePath append:NO];
-    
     [httpRequestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         NSLog(@"下载[%lld]",totalBytesRead);
         NSLog(@"期望下载[%lld]",totalBytesExpectedToRead);
     }];
-    
     self.dispatchTable[requestId] = httpRequestOperation;
-    
     [self.operationQueue addOperation:httpRequestOperation];
-    
     return requestId;
 }
 
 - (NSNumber *) afAPIRequest_upload_low:(SunbeamAFRequest *) requestModel success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail requestId:(NSNumber *) requestId
 {
-    AFHTTPRequestOperation *httpRequestOperation = [self.operationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    AFHTTPRequestOperationManager* requestOperationManager = [self getRequestOperationManager:requestModel];
+    AFHTTPRequestOperation *httpRequestOperation = [requestOperationManager HTTPRequestOperationWithRequest:requestModel.request success:^(AFHTTPRequestOperation *operation, id responseObject) {
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         int statusCode = (int)operation.response.statusCode;
-        
         NSLog(@"UPLOAD响应码为[%d]返回数据为:%@",statusCode,responseObject);
-        
         success?success([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:responseObject downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath errorcode:[self getNetworkResponseError:nil] message:[self getNetworkResponseErrorMessage:nil]]):nil;
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
         AFHTTPRequestOperation *storedOperation = self.dispatchTable[requestId];
-        
         if (storedOperation == nil) {
             // 如果这个operation是被cancel的，那就不用处理回调了。
             return;
         } else {
             [self.dispatchTable removeObjectForKey:requestId];
         }
-        
         fail?fail([SunbeamAFResponse getSAFResponse:[requestId integerValue] responseData:nil downloadFileSavePath:nil uploadFilePath:requestModel.uploadFilePath errorcode:[self getNetworkResponseError:error] message:[self getNetworkResponseErrorMessage:error]]):nil;
     }];
-    
     NSLog(@"上传文件请求header：[%@]", httpRequestOperation.request.allHTTPHeaderFields);
-    
     NSLog(@"上传文件请求body：[%@]", [[NSString alloc] initWithData:httpRequestOperation.request.HTTPBody encoding:NSUTF8StringEncoding]);
-    
     [httpRequestOperation setUploadProgressBlock:^(NSUInteger bytesWrite, long long totalBytesWrite, long long totalBytesExpectedToWrite) {
         NSLog(@"上传[%lld]",totalBytesWrite);
     }];
-    
     self.dispatchTable[requestId] = httpRequestOperation;
-    
     [self.operationQueue addOperation:httpRequestOperation];
-    
     return requestId;
 }
 
@@ -582,62 +547,67 @@ SAF_singleton_implementation(SunbeamAFHTTPService)
     return _dispatchTable;
 }
 
-- (AFSecurityPolicy *)customSecurityPolicy
+- (AFSecurityPolicy *) getCustomSecurityPolicy:(NSString *) cerFilePath
 {
-    /**** SSL Pinning ****/
-    NSData *certData = nil;
-    
-    if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName) {
-        // 自定义bundle
-        NSString* cerBundlePath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName ofType:@"bundle"];
-        
-        NSBundle* cerBundle = [NSBundle bundleWithPath:cerBundlePath];
-        
-        NSString *cerPath = [cerBundle pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
-        
-        certData = [NSData dataWithContentsOfFile:cerPath];
-    } else {
-        // main bundle
-        NSString *cerPath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
-        
-        certData = [NSData dataWithContentsOfFile:cerPath];
-    }
-    
+    NSData* cerData = [NSData dataWithContentsOfFile:cerFilePath];
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-    
-    securityPolicy.pinnedCertificates = @[certData];
-    
+    securityPolicy.pinnedCertificates = @[cerData];
     [securityPolicy setAllowInvalidCertificates:NO];
-    
     securityPolicy.validatesDomainName = YES;
-    
     return securityPolicy;
 }
 
-- (AFSecurityPolicy *)defaultSecurityPolicy
+//- (AFSecurityPolicy *)customSecurityPolicy
+//{
+//    /**** SSL Pinning ****/
+//    NSData *certData = nil;
+//    
+//    if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName) {
+//        // 自定义bundle
+//        NSString* cerBundlePath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerBundleName ofType:@"bundle"];
+//        
+//        NSBundle* cerBundle = [NSBundle bundleWithPath:cerBundlePath];
+//        
+//        NSString *cerPath = [cerBundle pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
+//        
+//        certData = [NSData dataWithContentsOfFile:cerPath];
+//    } else {
+//        // main bundle
+//        NSString *cerPath = [[NSBundle mainBundle] pathForResource:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName ofType:@"cer"];
+//        
+//        certData = [NSData dataWithContentsOfFile:cerPath];
+//    }
+//    
+//    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+//    
+//    securityPolicy.pinnedCertificates = @[certData];
+//    
+//    [securityPolicy setAllowInvalidCertificates:NO];
+//    
+//    securityPolicy.validatesDomainName = YES;
+//    
+//    return securityPolicy;
+//}
+
+- (AFSecurityPolicy *) getDefaultSecurityPolicy
 {
     AFSecurityPolicy* securityPolicyForZAPI = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    
     securityPolicyForZAPI.allowInvalidCertificates = YES;
-    
     securityPolicyForZAPI.validatesDomainName = NO;
-    
     return securityPolicyForZAPI;
 }
 
-- (AFHTTPRequestOperationManager *)operationManager
+- (AFHTTPRequestOperationManager *) getRequestOperationManager:(SunbeamAFRequest *) safRequest
 {
     if (_operationManager == nil) {
         _operationManager = [AFHTTPRequestOperationManager manager];
-        
         //_operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
         _operationManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        
-        if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].securitySSLCerFileName) {
-            _operationManager.securityPolicy = self.customSecurityPolicy;
-        } else {
-            _operationManager.securityPolicy = self.defaultSecurityPolicy;
-        }
+    }
+    if (safRequest.cerFilePath) {
+        _operationManager.securityPolicy = [self getCustomSecurityPolicy:safRequest.cerFilePath];
+    } else {
+        _operationManager.securityPolicy = [self getDefaultSecurityPolicy];
     }
     
     return _operationManager;

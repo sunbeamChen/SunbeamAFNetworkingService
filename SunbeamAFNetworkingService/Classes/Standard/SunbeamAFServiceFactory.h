@@ -21,11 +21,13 @@
 
 @interface SunbeamAFServiceFactory : NSObject
 
-SAF_singleton_interface(SunbeamAFServiceFactory)
+/**
+ *  单例
+ */
++ (SunbeamAFServiceFactory *) sharedSunbeamAFServiceFactory;
 
 // service factory 工厂代理
 @property (nonatomic, weak) id<SAFServiceFactoryProtocol> delegate;
-
 // 根据对应的serviceIdentifier获取对应的SunbeamAFBaseService
 - (SunbeamAFBaseService<SAFServiceProtocol> *) getSAFServiceWithServiceIdentifier:(NSString *) serviceIdentifier;
 

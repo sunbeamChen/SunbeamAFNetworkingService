@@ -12,7 +12,18 @@
 
 @implementation SunbeamAFHTTPClient
 
-SAF_singleton_implementation(SunbeamAFHTTPClient)
+/**
+ *  单例
+ */
++ (SunbeamAFHTTPClient *) sharedSunbeamAFHTTPClient
+{
+    static SunbeamAFHTTPClient *sharedInstance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 - (NSInteger) loadSAFRequestWithParams:(SAFRequestType) requestType withParams:(NSDictionary *) params serviceIdentifier:(NSString *) servieIdentifier methodName:(NSString *) methodName success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail
 {

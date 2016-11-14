@@ -21,6 +21,9 @@
 // 请求url
 @property (nonatomic, copy, readonly) NSString* urlString;
 
+// security ssl cer file path
+@property (nonatomic, copy, readonly) NSString* cerFilePath;
+
 // header请求参数
 @property (nonatomic, strong, readonly) NSMutableDictionary* headerParameters;
 
@@ -37,6 +40,6 @@
 @property (nonatomic, copy, readonly) NSString* uploadFilePath;
 
 // 获取请求实例对象
-+ (SunbeamAFRequest *) getSAFRequest:(SAFRequestType) requestType request:(NSMutableURLRequest *) request urlString:(NSString *) urlString headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath;
++ (SunbeamAFRequest *) getSAFRequest:(SAFRequestType) requestType request:(NSMutableURLRequest *) request urlString:(NSString *) urlString cerFilePath:(NSString *) cerFilePath headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath;
 
 @end

@@ -20,7 +20,10 @@ typedef void(^SunbeamAFCallback)(SunbeamAFResponse* response);
 
 @interface SunbeamAFHTTPService : NSObject
 
-SAF_singleton_interface(SunbeamAFHTTPService)
+/**
+ *  单例
+ */
++ (SunbeamAFHTTPService *) sharedSunbeamAFHTTPService;
 
 /**
  *  AFNetworking请求

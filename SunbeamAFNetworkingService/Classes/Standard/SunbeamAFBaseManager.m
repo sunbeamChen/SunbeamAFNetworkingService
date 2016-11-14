@@ -7,7 +7,6 @@
 //
 
 #import "SunbeamAFBaseManager.h"
-
 #import "SunbeamAFHTTPClient.h"
 
 #define SAF_REQUEST_ID_DEFAULT 0

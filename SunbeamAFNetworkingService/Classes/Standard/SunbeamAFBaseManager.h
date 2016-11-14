@@ -12,6 +12,8 @@
 
 #import "SunbeamAFServiceContext.h"
 
+#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.10"
+
 @class SunbeamAFBaseManager;
 
 #pragma mark - 用于获取请求的参数

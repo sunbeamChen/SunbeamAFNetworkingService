@@ -12,7 +12,10 @@
 
 @interface SunbeamAFHTTPClient : NSObject
 
-SAF_singleton_interface(SunbeamAFHTTPClient)
+/**
+ *  单例
+ */
++ (SunbeamAFHTTPClient *) sharedSunbeamAFHTTPClient;
 
 /**
  *  开启网络请求

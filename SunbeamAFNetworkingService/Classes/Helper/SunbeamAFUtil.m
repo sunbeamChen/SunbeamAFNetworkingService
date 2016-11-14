@@ -27,7 +27,6 @@
             [result addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
         }
     }];
-    
     return result;
 }
 
@@ -42,7 +41,6 @@
             [paramString appendFormat:@"&%@", obj];
         }
     }];
-    
     return paramString;
 }
 

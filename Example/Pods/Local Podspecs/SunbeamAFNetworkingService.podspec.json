@@ -1,6 +1,6 @@
 {
   "name": "SunbeamAFNetworkingService",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "summary": "SunbeamAFNetworkingService is a simple structure for AFNetworking.",
   "homepage": "https://github.com/sunbeamChen/SunbeamAFNetworkingService",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/sunbeamChen/SunbeamAFNetworkingService.git",
-    "tag": "0.2.9"
+    "tag": "0.2.10"
   },
   "platforms": {
     "ios": "7.0"
@@ -22,8 +22,7 @@
   "public_header_files": [
     "SunbeamAFNetworkingService/Classes/SunbeamAFNetworkingService.h",
     "SunbeamAFNetworkingService/Classes/Standard/*.h",
-    "SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h",
-    "SunbeamAFNetworkingService/Classes/Helper/SunbeamAFSingletonService.h"
+    "SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h"
   ],
   "dependencies": {
     "AFNetworking": [

@@ -19,6 +19,9 @@
 // 请求url
 @property (nonatomic, copy, readwrite) NSString* urlString;
 
+// security ssl cer file path
+@property (nonatomic, copy, readwrite) NSString* cerFilePath;
+
 // header请求参数
 @property (nonatomic, strong, readwrite) NSMutableDictionary* headerParameters;
 
@@ -35,18 +38,19 @@
 @property (nonatomic, copy, readwrite) NSString* uploadFilePath;
 
 // 初始化请求实例对象
-- (instancetype) initSAFRequest:(SAFRequestType) requestType request:(NSMutableURLRequest *) request urlString:(NSString *) urlString headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath;
+- (instancetype) initSAFRequest:(SAFRequestType) requestType request:(NSMutableURLRequest *) request urlString:(NSString *) urlString cerFilePath:(NSString *) cerFilePath headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath;
 
 @end
 
 @implementation SunbeamAFRequest
 
-- (instancetype)initSAFRequest:(SAFRequestType)requestType request:(NSMutableURLRequest *)request urlString:(NSString *)urlString headerParameters:(NSMutableDictionary *)headerParameters urlParameters:(NSMutableDictionary *)urlParameters bodyParameters:(NSMutableDictionary *)bodyParameters downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath
+- (instancetype)initSAFRequest:(SAFRequestType)requestType request:(NSMutableURLRequest *)request urlString:(NSString *)urlString cerFilePath:(NSString *) cerFilePath headerParameters:(NSMutableDictionary *)headerParameters urlParameters:(NSMutableDictionary *)urlParameters bodyParameters:(NSMutableDictionary *)bodyParameters downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath
 {
     if (self = [super init]) {
         self.requestType = requestType;
         self.request = request;
         self.urlString = urlString;
+        self.cerFilePath = cerFilePath;
         self.headerParameters = headerParameters;
         self.urlParameters = urlParameters;
         self.bodyParameters = bodyParameters;
@@ -57,9 +61,9 @@
     return self;
 }
 
-+ (SunbeamAFRequest *)getSAFRequest:(SAFRequestType)requestType request:(NSMutableURLRequest *)request urlString:(NSString *)urlString headerParameters:(NSMutableDictionary *)headerParameters urlParameters:(NSMutableDictionary *)urlParameters bodyParameters:(NSMutableDictionary *)bodyParameters downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath
++ (SunbeamAFRequest *)getSAFRequest:(SAFRequestType)requestType request:(NSMutableURLRequest *)request urlString:(NSString *)urlString cerFilePath:(NSString *) cerFilePath headerParameters:(NSMutableDictionary *)headerParameters urlParameters:(NSMutableDictionary *)urlParameters bodyParameters:(NSMutableDictionary *)bodyParameters downloadFileSavePath:(NSString *)downloadFileSavePath uploadFilePath:(NSString *)uploadFilePath
 {
-    SunbeamAFRequest* safRequest = [[SunbeamAFRequest alloc] initSAFRequest:requestType request:request urlString:urlString headerParameters:headerParameters urlParameters:urlParameters bodyParameters:bodyParameters downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath];
+    SunbeamAFRequest* safRequest = [[SunbeamAFRequest alloc] initSAFRequest:requestType request:request urlString:urlString cerFilePath:cerFilePath headerParameters:headerParameters urlParameters:urlParameters bodyParameters:bodyParameters downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath];
     
     return safRequest;
 }

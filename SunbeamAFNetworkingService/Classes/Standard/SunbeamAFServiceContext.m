@@ -14,7 +14,6 @@
 
 // 网络是否可达
 @property (nonatomic, assign, readwrite) BOOL networkIsReachable;
-
 // 当前网络状态
 @property (nonatomic, assign, readwrite) SAFNetworkStatus networkStatus;
 
@@ -22,8 +21,18 @@
 
 @implementation SunbeamAFServiceContext
 
-// 单例
-SAF_singleton_implementation(SunbeamAFServiceContext)
+/**
+ *  单例
+ */
++ (SunbeamAFServiceContext *) sharedSunbeamAFServiceContext
+{
+    static SunbeamAFServiceContext *sharedInstance = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 - (instancetype)init
 {
@@ -31,7 +40,6 @@ SAF_singleton_implementation(SunbeamAFServiceContext)
         // 初始化网络监听
         [self initNetworkService];
     }
-    
     return self;
 }
 
@@ -39,31 +47,24 @@ SAF_singleton_implementation(SunbeamAFServiceContext)
 - (void) initNetworkService
 {
     self.networkStatus = SAFNetworkStatusUnknown;
-    
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
                 self.networkStatus = SAFNetworkStatusUnknown;
                 break;
-                
             case AFNetworkReachabilityStatusNotReachable:
                 self.networkStatus = SAFNetworkStatusNotReachable;
                 break;
-                
             case AFNetworkReachabilityStatusReachableViaWWAN:
                 self.networkStatus = SAFNetworkStatusReachableViaWWAN;
                 break;
-                
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 self.networkStatus = SAFNetworkStatusReachableViaWiFi;
                 break;
-                
             default:
                 break;
         }
-        
         @synchronized(self)
         {
             NSNotification *notificationPost = [NSNotification notificationWithName:SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME object:self userInfo:nil];
@@ -85,7 +86,6 @@ SAF_singleton_implementation(SunbeamAFServiceContext)
     if (self.networkStatus == SAFNetworkStatusUnknown) {
         return YES;
     }
-    
     return [[AFNetworkReachabilityManager sharedManager] isReachable];
 }
 

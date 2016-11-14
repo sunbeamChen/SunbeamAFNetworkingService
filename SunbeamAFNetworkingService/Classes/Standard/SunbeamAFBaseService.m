@@ -7,7 +7,6 @@
 //
 
 #import "SunbeamAFBaseService.h"
-
 #import "SunbeamAFServiceContext.h"
 
 @implementation SunbeamAFBaseService
@@ -19,18 +18,27 @@
             self.child = (id<SAFServiceProtocol>) self;
         }
     }
-    
     return self;
 }
 
-- (NSString *)serviceUrl
+- (NSString *)protocol
 {
-    return [SunbeamAFServiceContext sharedSunbeamAFServiceContext].serviceUnified ? [SunbeamAFServiceContext sharedSunbeamAFServiceContext].unifiedUrl : self.child.serviceUrl;
+    return self.child.protocol;
 }
 
-- (NSString *)serviceVersion
+- (NSString *)domain
 {
-    return [SunbeamAFServiceContext sharedSunbeamAFServiceContext].serviceUnified ? [SunbeamAFServiceContext sharedSunbeamAFServiceContext].unifiedVersion : self.child.serviceVersion;
+    return self.child.domain;
+}
+
+- (NSString *)version
+{
+    return self.child.version;
+}
+
+- (NSString *)cerFilePath
+{
+    return self.child.cerFilePath;
 }
 
 @end
