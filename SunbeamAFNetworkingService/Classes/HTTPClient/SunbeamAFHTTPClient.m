@@ -7,7 +7,6 @@
 //
 
 #import "SunbeamAFHTTPClient.h"
-
 #import "SunbeamAFRequestGenerator.h"
 
 @implementation SunbeamAFHTTPClient

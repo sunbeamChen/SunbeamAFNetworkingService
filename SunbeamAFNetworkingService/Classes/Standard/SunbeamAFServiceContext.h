@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SunbeamAFServiceFactory.h"
-#import <AFNetworking/AFNetworking.h>
 
 // 请求类型
 typedef NS_ENUM(NSInteger, SAFRequestType) {
@@ -37,12 +36,17 @@ typedef NS_ENUM(NSInteger, SAFNetworkSystemError) {
 # define SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME @"network_status_changed_notification"
 // 请求超时默认设置
 #define SunbeamAFRequestTimeoutInterval 10.0f
-// 请求参数key设置
+// 单独设置request header content type是因为在requestSerializer初始化的时候需要确定是使用httpRequestSerializer还是httpJsonRequestSerializer.
 #define SunbeamAFRequestHeaderContentType @"saf_request_header_content_type_string"
+// 设置NSMutableURLRequest header中参数，例如版本号APIVersion
 #define SunbeamAFRequestHeaderParamsKey @"saf_request_header_params_dict"
+// 设置NSMutableURLRequest url链接后使用 ? 后接的参数
 #define SunbeamAFRequestUrlParamsKey @"saf_request_url_dict"
+// 设置NSMutableURLRequest body中请求参数
 #define SunbeamAFRequestBodyParamsKey @"saf_request_body_dict"
+// 设置文件下载后保存的地址
 #define SunbeamAFRequestDownloadFileSavePathParamsKey @"saf_request_download_file_save_path_string"
+// 设置需要上传文件的本地地址
 #define SunbeamAFRequestUploadFilePathParamsKey @"saf_request_upload_file_path_string"
 
 @interface SunbeamAFServiceContext : NSObject
