@@ -1,5 +1,5 @@
 PODS:
-  - SunbeamAFNetworkingService (0.2.12)
+  - SunbeamAFNetworkingService (0.2.13)
 
 DEPENDENCIES:
   - SunbeamAFNetworkingService (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SunbeamAFNetworkingService: a3d909db4fd2ff09a846be4f97e09472e13c9168
+  SunbeamAFNetworkingService: 79a2ad988b229ffa6bbc2db1b50c44140155c1be
 
 PODFILE CHECKSUM: 70d4b37e9b9c8a3cdd1f99f02fdb2ce94e462bd9
 

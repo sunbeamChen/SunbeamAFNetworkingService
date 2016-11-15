@@ -10,7 +10,7 @@
 #import "SunbeamAFResponse.h"
 #import "SunbeamAFServiceContext.h"
 
-#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.12"
+#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.13"
 
 @class SunbeamAFBaseManager;
 

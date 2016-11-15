@@ -7,7 +7,7 @@
 //
 
 #import "SunbeamAFHTTPService.h"
-#import "../AFNetworking/AFNetworking.h"
+#import "AFNetworking.h"
 
 #define AFNetworking_Version @"2.0"
 

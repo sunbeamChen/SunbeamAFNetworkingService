@@ -7,7 +7,7 @@
 //
 
 #import "SunbeamAFRequestGenerator.h"
-#import "../AFNetworking/AFNetworking.h"
+#import "AFNetworking.h"
 #import "SunbeamAFServiceFactory.h"
 #import "SunbeamAFUtil.h"
 
