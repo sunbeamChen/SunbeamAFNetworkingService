@@ -8,7 +8,7 @@
 
 #import "SunbeamAFServiceContext.h"
 #import "SunbeamAFServiceFactory.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface SunbeamAFServiceContext()
 
