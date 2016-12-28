@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamAFNetworkingService'
-  s.version          = '0.2.14'
-  s.summary          = 'SunbeamAFNetworkingService is a simple structure for AFNetworking.'
+  s.version          = '0.2.15'
+  s.summary          = 'SunbeamAFNetworkingService is a simple structure base on AFNetworking 2.6.3'
 
   s.homepage         = 'https://github.com/sunbeamChen/SunbeamAFNetworkingService'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -10,6 +10,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '7.0'
   s.requires_arc = true
   s.source_files = 'SunbeamAFNetworkingService/Classes/**/*'
-  s.public_header_files = 'SunbeamAFNetworkingService/Classes/SunbeamAFNetworkingService.h','SunbeamAFNetworkingService/Classes/Standard/*.h','SunbeamAFNetworkingService/Classes/HTTPClient/SunbeamAFResponse.h'
+  s.public_header_files = 'SunbeamAFNetworkingService/Classes/**/*.h'
   s.dependency 'AFNetworking', '~> 2.6.3'
 end

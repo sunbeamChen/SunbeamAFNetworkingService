@@ -8,41 +8,36 @@
 
 #import <Foundation/Foundation.h>
 #import "SunbeamAFRequest.h"
-#import "SunbeamAFResponse.h"
-#import "SunbeamAFServiceContext.h"
-
-typedef void(^SunbeamAFCallback)(SunbeamAFResponse* response);
 
 @interface SunbeamAFHTTPService : NSObject
 
 /**
- *  单例
+ GET/POST
+ 
+ @param slafRequest 请求
+ @param completion 回调
+ @return NSURLSessionTask
  */
-+ (SunbeamAFHTTPService *) sharedSunbeamAFHTTPService;
+- (id) loadDataTask:(SunbeamAFRequest *) slafRequest completion:(void (^)(NSURLResponse* response, id responseObject,  NSError* error)) completion;
 
 /**
- *  AFNetworking请求
- *
- *  @param request 请求实体
- *  @param success 成功回调
- *  @param fail    失败回调
- *
- *  @return 请求id
+ Upload
+ 
+ @param slafRequest 请求
+ @param uploadProgressBlock 上传进程
+ @param completion 回调
+ @return NSURLSessionTask
  */
-- (NSNumber *) sunbeamAFRequest:(SunbeamAFRequest *) request success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail;
+- (id) loadUploadTask:(SunbeamAFRequest *) slafRequest uploadProgress:(NSProgress * __nullable __autoreleasing * __nullable) uploadProgress completion:(void (^)(NSURLResponse* response, id responseObject,  NSError* error)) completion;
 
 /**
- *  取消指定requestId的请求
- *
- *  @param requestId 请求id
+ Download
+ 
+ @param slafRequest 请求
+ @param downloadProgressBlock 下载进程
+ @param completion 回调
+ @return NSURLSessionTask
  */
-- (void) cancelSAFRequestWithRequestId:(NSNumber *) requestId;
-
-/**
- *  取消置顶request id list的请求
- *
- *  @param requestIdList 请求id list
- */
-- (void) cancelSAFRequestWithRequestIdList:(NSArray *) requestIdList;
+- (id) loadDownloadTask:(SunbeamAFRequest *) slafRequest downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(NSURLResponse* response, NSURL* filePath, NSError* error)) completion;
 
 @end

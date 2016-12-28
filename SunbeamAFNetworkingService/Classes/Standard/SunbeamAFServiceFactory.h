@@ -11,8 +11,13 @@
 
 @protocol SAFServiceFactoryProtocol <NSObject>
 
-// 根据对应的serviceIdentifier获取对应的SunbeamAFBaseService
-- (SunbeamAFBaseService<SAFServiceProtocol> *) getSAFService:(NSString *) serviceIdentifier;
+/**
+ 根据对应的identifier获取对应的SunbeamAFBaseService
+
+ @param identifier 标识
+ @return SunbeamAFBaseService<SAFServiceProtocol>
+ */
+- (SunbeamAFBaseService<SAFServiceProtocol> *) getSAFService:(NSString *) identifier;
 
 @end
 
@@ -23,9 +28,17 @@
  */
 + (SunbeamAFServiceFactory *) sharedSunbeamAFServiceFactory;
 
-// service factory 工厂代理
+/**
+ SAF service factory delegate
+ */
 @property (nonatomic, weak) id<SAFServiceFactoryProtocol> delegate;
-// 根据对应的serviceIdentifier获取对应的SunbeamAFBaseService
-- (SunbeamAFBaseService<SAFServiceProtocol> *) getSAFServiceWithServiceIdentifier:(NSString *) serviceIdentifier;
+
+/**
+ 根据对应的identifier获取对应的SunbeamAFBaseService
+
+ @param identifier 标识
+ @return SunbeamAFBaseService<SAFServiceProtocol>
+ */
+- (SunbeamAFBaseService<SAFServiceProtocol> *) getSAFService:(NSString *) identifier;
 
 @end

@@ -10,7 +10,7 @@
 
 @interface SunbeamAFServiceFactory()
 
-@property (nonatomic, strong) NSMutableDictionary *serviceStorage;
+@property (nonatomic, strong) NSMutableDictionary *SAFServiceStorage;
 
 @end
 
@@ -26,24 +26,32 @@
     dispatch_once(&once, ^{
         sharedInstance = [[self alloc] init];
     });
+    
     return sharedInstance;
 }
 
-- (SunbeamAFBaseService<SAFServiceProtocol> *)getSAFServiceWithServiceIdentifier:(NSString *)serviceIdentifier
+- (SunbeamAFBaseService<SAFServiceProtocol> *)getSAFService:(NSString *)identifier
 {
-    if (self.serviceStorage[serviceIdentifier] == nil) {
-        self.serviceStorage[serviceIdentifier] = [self.delegate getSAFService:serviceIdentifier];
+    if (self.SAFServiceStorage[identifier] == nil) {
+        
+        NSAssert(self.delegate != nil, @"SAFServiceFactory delegate should not be nil");
+        
+        NSAssert([self.delegate respondsToSelector:@selector(getSAFService:)], @"SAFServiceFactory delegate selector [getSAFService:] should not be nil");
+        
+        self.SAFServiceStorage[identifier] = [self.delegate getSAFService:identifier];
     }
-    return self.serviceStorage[serviceIdentifier];
+    
+    return self.SAFServiceStorage[identifier];
 }
 
 #pragma mark - getters and setters
-- (NSMutableDictionary *)serviceStorage
+- (NSMutableDictionary *)SAFServiceStorage
 {
-    if (_serviceStorage == nil) {
-        _serviceStorage = [[NSMutableDictionary alloc] init];
+    if (_SAFServiceStorage == nil) {
+        _SAFServiceStorage = [[NSMutableDictionary alloc] init];
     }
-    return _serviceStorage;
+    
+    return _SAFServiceStorage;
 }
 
 @end

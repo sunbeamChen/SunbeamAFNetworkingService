@@ -8,30 +8,26 @@
 
 #import "SunbeamAFBaseManager.h"
 #import "SunbeamAFHTTPClient.h"
+#import "SunbeamAFServiceProperty.h"
+#import "SunbeamAFServiceContext.h"
 
-#define SAF_REQUEST_ID_DEFAULT 0
-
-@interface SunbeamAFBaseManager()
-
-@property (nonatomic, strong) NSMutableArray *requestIdList;
-
-@end
+#define SAF_REQUEST_ID_DEFAULT @(0)
 
 @implementation SunbeamAFBaseManager
 
 - (instancetype)init
 {
     if (self = [super init]) {
-        _paramsForRequest = nil;
-        _paramsAndCallbackValidator = nil;
-        _managerInterceptor = nil;
-        _managerCallbackDataReformer = nil;
-        _managerCallbackDelegate = nil;
-        _httpResponse = nil;
-        
         if ([self conformsToProtocol:@protocol(SAFManagerProtocol)]) {
-            _child = (id<SAFManagerProtocol>)self;
+            _childManager = (id<SAFManagerProtocol>) self;
+        } else {
+            NSLog(@"%@不符合SAFManagerProtocol", self);
         }
+        _paramsForRequest = nil;
+        _paramsValidator = nil;
+        _managerCallbackDataFormatter = nil;
+        _managerInterceptor = nil;
+        _managerCallbackDataValidator = nil;
     }
     
     return self;
@@ -39,182 +35,200 @@
 
 - (void)dealloc
 {
-    [self cancelAllRequests];
-    self.requestIdList = nil;
-    self.httpResponse = nil;
+    [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] cancelAllRequest];
 }
 
-#pragma mark - public methods
-- (void)cancelAllRequests
+- (NSNumber *) loadDataTask:(void(^)(NSString* identifier, id responseObject, NSError* error)) completion
 {
-    [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] cancelRequestWithRequestIdList:self.requestIdList];
+    NSError* error = [self beforeRequest];
+    if (error != nil) {
+        completion(self.childManager.identifier, nil, error);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
     
-    [self.requestIdList removeAllObjects];
-}
-
-- (void)cancelRequestWithRequestId:(NSInteger)requestId
-{
-    [self removeRequestIdWithRequestId:requestId];
+    NSDictionary* params = nil;
+    if (self.paramsForRequest && [self.paramsForRequest respondsToSelector:@selector(managerParamsForRequest)]) {
+        params = [self.paramsForRequest managerParamsForRequest];
+    }
     
-    [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] cancelRequestWithRequestId:@(requestId)];
+    __weak __typeof__(self) weakSelf = self;
+    if (self.childManager.method == GET || self.childManager.method == POST) {
+        return [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadDataTask:self.childManager.URI identifier:self.childManager.identifier method:self.childManager.method params:params completion:^(SunbeamAFResponse *response) {
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            if (response.error == nil) {
+                id jsonData = [strongSelf formatResponseData:response.responseObject];
+                NSLog(@"\nhttps GET/POST请求响应格式化后数据：%@\n<<<end==========================================https GET/POST请求序号:%@", jsonData, response.requestId);
+                if (self.managerCallbackDataValidator && [self.managerCallbackDataValidator respondsToSelector:@selector(managerCallbackDataValidate:)]) {
+                    NSError* error = [self.managerCallbackDataValidator managerCallbackDataValidate:jsonData];
+                    if (error != nil) {
+                        completion(strongSelf.childManager.identifier, nil, error);
+                        if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformFailed)]) {
+                            [strongSelf.managerInterceptor managerInterceptorPerformFailed];
+                        }
+                        
+                        return ;
+                    }
+                }
+                completion(strongSelf.childManager.identifier, jsonData, nil);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformSuccess)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformSuccess];
+                }
+            } else {
+                completion(strongSelf.childManager.identifier, nil, response.error);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformFailed)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformFailed];
+                }
+            }
+        }];
+    } else {
+        completion(self.childManager.identifier, nil, [NSError errorWithDomain:SAF_ERROR_DOMAIN code:REQUEST_METHOD_NOT_SUPPORT userInfo:@{NSLocalizedDescriptionKey:@"request method not support"}]);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
 }
 
-- (NSDictionary *) fetchHttpResponseDictWithReformer:(id<SAFManagerCallbackDataReformer>) reformer
+- (NSNumber *) loadUploadTask:(NSMutableDictionary *) uploadFiles uploadProgress:(NSProgress * __nullable __autoreleasing * __nullable) uploadProgress completion:(void(^)(NSString* identfier, id responseObject, NSError* error)) completion
 {
-    if (self.httpResponse.responseData == nil || [self.httpResponse.responseData length] == 0) {
+    NSError* error = [self beforeRequest];
+    if (error != nil) {
+        completion(self.childManager.identifier, nil, error);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
+    
+    NSDictionary* params = nil;
+    if (self.paramsForRequest && [self.paramsForRequest respondsToSelector:@selector(managerParamsForRequest)]) {
+        params = [self.paramsForRequest managerParamsForRequest];
+    }
+    
+    __weak __typeof__(self) weakSelf = self;
+    if (self.childManager.method == UPLOAD) {
+        return [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadUploadTask:self.childManager.URI identifier:self.childManager.identifier method:self.childManager.method params:params uploadFiles:uploadFiles uploadProgress:uploadProgress completion:^(SunbeamAFResponse *response) {
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            if (response.error == nil) {
+                id jsonData = [strongSelf formatResponseData:response.responseObject];
+                if (self.managerCallbackDataValidator && [self.managerCallbackDataValidator respondsToSelector:@selector(managerCallbackDataValidate:)]) {
+                    NSError* error = [self.managerCallbackDataValidator managerCallbackDataValidate:jsonData];
+                    if (error != nil) {
+                        completion(strongSelf.childManager.identifier, nil, error);
+                        if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformFailed)]) {
+                            [strongSelf.managerInterceptor managerInterceptorPerformFailed];
+                        }
+                        
+                        return ;
+                    }
+                }
+                completion(strongSelf.childManager.identifier, jsonData, nil);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformSuccess)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformSuccess];
+                }
+            } else {
+                completion(strongSelf.childManager.identifier, nil, response.error);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformFailed)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformFailed];
+                }
+            }
+        }];
+    } else {
+        completion(self.childManager.identifier, nil, [NSError errorWithDomain:SAF_ERROR_DOMAIN code:REQUEST_METHOD_NOT_SUPPORT userInfo:@{NSLocalizedDescriptionKey:@"request method not support"}]);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
+}
+
+- (NSNumber *) loadDownloadTask:(NSProgress * __nullable __autoreleasing * __nullable) downloadProgress completion:(void(^)(NSString* identfier, NSURL* downloadFileurl, NSError* error)) completion
+{
+    NSError* error = [self beforeRequest];
+    if (error != nil) {
+        completion(self.childManager.identifier, nil, error);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
+    
+    NSDictionary* params = nil;
+    if (self.paramsForRequest && [self.paramsForRequest respondsToSelector:@selector(managerParamsForRequest)]) {
+        params = [self.paramsForRequest managerParamsForRequest];
+    }
+
+    __weak __typeof__(self) weakSelf = self;
+    if (self.childManager.method == DOWNLOAD) {
+        return [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadDownloadTask:self.childManager.URI identifier:self.childManager.identifier method:self.childManager.method params:params downloadProgress:downloadProgress completion:^(SunbeamAFResponse *response) {
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            if (response.error == nil) {
+                completion(strongSelf.childManager.identifier, response.downloadFileUrl, nil);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformSuccess)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformSuccess];
+                }
+            } else {
+                completion(strongSelf.childManager.identifier, nil, response.error);
+                if (strongSelf.managerInterceptor && [strongSelf.managerInterceptor respondsToSelector:@selector(managerInterceptorPerformFailed)]) {
+                    [strongSelf.managerInterceptor managerInterceptorPerformFailed];
+                }
+            }
+        }];
+    } else {
+        completion(self.childManager.identifier, nil, [NSError errorWithDomain:SAF_ERROR_DOMAIN code:REQUEST_METHOD_NOT_SUPPORT userInfo:@{NSLocalizedDescriptionKey:@"request method not support"}]);
+        
+        return SAF_REQUEST_ID_DEFAULT;
+    }
+}
+
+#pragma mark - private method
+/**
+ 检测网络参数等
+ 
+ @return NSError
+ */
+- (NSError *) beforeRequest
+{
+    // 判断网络是否正常
+    if (![[SunbeamAFServiceContext sharedSunbeamAFServiceContext] networkIsReachable])
+    {
+        return [NSError errorWithDomain:SAF_ERROR_DOMAIN code:NETWORK_NOT_REACHABLE_ERROR userInfo:@{NSLocalizedDescriptionKey:@"network is not reachable"}];
+    }
+    
+    // 判断当前是否有网络请求正在执行(取决于是否支持多个请求同时执行)
+    if ([[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient].sessionTaskQueue count] > 0)
+    {
+        //TODO:该处采取的策略是阻止新的请求，另外一种策略是取消旧的请求，执行新的请求(待实际测试判断)
+        
+        return [NSError errorWithDomain:SAF_ERROR_DOMAIN code:REQUEST_RUNING_ERROR userInfo:@{NSLocalizedDescriptionKey:@"network request is busy"}];
+    }
+    
+    // 判断网络请求参数是否合法，错误会返回NSError（由外部判断后返回）
+    if (self.paramsValidator && [self.paramsValidator respondsToSelector:@selector(managerParamsValidate)]) {
+        return [self.paramsValidator managerParamsValidate];
+    }
+    
+    return nil;
+}
+
+/**
+ 格式化响应数据
+ 
+ @param formatter 格式化方法
+ @return json
+ */
+- (id) formatResponseData:(id) responseObject
+{
+    // 如果formatter不为空，则默认外部进行格式化处理
+    if (self.managerCallbackDataFormatter && [self.managerCallbackDataFormatter respondsToSelector:@selector(managerCallbackDataFormat:)]) {
+        return [self.managerCallbackDataFormatter managerCallbackDataFormat:responseObject];
+    }
+    
+    if (responseObject == nil || [responseObject length] == 0) {
         return nil;
     }
     
-    if ([reformer respondsToSelector:@selector(managerCallbackDataReformer:)]) {
-        return [reformer managerCallbackDataReformer:self];
-    }
-    
     NSError* error = nil;
-    NSDictionary* returnDictionary = [NSJSONSerialization JSONObjectWithData:self.httpResponse.responseData options:NSJSONReadingAllowFragments error:&error];
-    
+    id returnDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
     if (error) {
+        NSLog(@"\n网络请求数据NSJSONReadingAllowFragments格式化失败：%@", error);
         return nil;
     }
     
     return returnDictionary;
-}
-
-#pragma mark - calling api
-- (NSInteger)loadRequest
-{
-    /**
-     *  首先判断网络是否正常
-     */
-    if (![self isReachable])
-    {
-        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:SAFNetworkSystemErrorNoNetwork message:@"network is not reachable"];
-        
-        [self failedOnCallingAPI:self.httpResponse];
-        
-        return SAF_REQUEST_ID_DEFAULT;
-    }
-    /**
-     *  判断当前是否有网络请求正在执行
-     */
-    if ([self isLoading])
-    {
-        // 该处采取的策略是阻止新的请求，另外一种策略是取消旧的请求，执行新的请求(待实际测试判断)
-        self.httpResponse = [SunbeamAFResponse getSAFResponse:SAF_REQUEST_ID_DEFAULT responseData:nil downloadFileSavePath:nil uploadFilePath:nil errorcode:SAFNetworkSystemErrorRequestIsRuning message:@"network request is busy"];
-        
-        [self failedOnCallingAPI:self.httpResponse];
-        
-        return SAF_REQUEST_ID_DEFAULT;
-    }
-    /**
-     *  判断网络请求参数是否合法
-     */
-    if (![self.paramsAndCallbackValidator managerParamsValidator:self])
-    {
-        // 参数检查有问题，设置apiSuccessError,返回到此处进行处理
-        [self failedOnCallingAPI:self.httpResponse];
-        
-        return SAF_REQUEST_ID_DEFAULT;
-    }
-    /**
-     *  获取请求params
-     */
-    NSDictionary *params = [self.paramsForRequest managerParamsForRequest:self];
-    
-    /**
-     *  执行网络请求操作
-     */
-    return [self loadDataWithParams:params];
-}
-
-- (NSInteger)loadDataWithParams:(NSDictionary *)params
-{
-    NSInteger requestId = SAF_REQUEST_ID_DEFAULT;
-    
-    // 先检查一下是否有缓存,如果有做缓存，则直接从缓存中取
-    // 实际网络请求
-    requestId = [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadSAFRequestWithParams:self.child.requestType withParams:params serviceIdentifier:self.child.serviceIdentifier methodName:self.child.methodName success:^(SunbeamAFResponse *response) {
-        [self successedOnCallingAPI:response];
-    } fail:^(SunbeamAFResponse *response) {
-        [self failedOnCallingAPI:response];
-    }];
-    
-    [self.requestIdList addObject:@(requestId)];
-    
-    return requestId;
-}
-
-#pragma mark - api callbacks
-- (void)successedOnCallingAPI:(SunbeamAFResponse*) httpResponse
-{
-    self.httpResponse = httpResponse;
-    
-    [self removeRequestIdWithRequestId:httpResponse.requestId];
-    
-    if (![self.paramsAndCallbackValidator managerCallbackValidator:self])
-    {
-        [self failedOnCallingAPI:httpResponse];
-        return;
-    }
-    
-    //此处可以添加缓存策略,缓存返回数据供下次请求使用
-    [self.managerInterceptor managerInterceptorBeforePerformSuccess:self];
-    [self.managerCallbackDelegate managerCallbackSuccess:self];
-    [self.managerInterceptor managerInterceptorAfterPerformSuccess:self];
-}
-
-- (void)failedOnCallingAPI:(SunbeamAFResponse*) httpResponse
-{
-    self.httpResponse = httpResponse;
-    
-    if (httpResponse != nil)
-    {
-        [self removeRequestIdWithRequestId:httpResponse.requestId];
-    }
-    
-    [self.managerInterceptor managerInterceptorBeforePerformFail:self];
-    [self.managerCallbackDelegate managerCallbackFail:self];
-    [self.managerInterceptor managerInterceptorAfterPerformFail:self];
-}
-
-#pragma mark - method for child
-- (void)cleanData
-{
-    if ([self.child respondsToSelector:@selector(cleanData)]) {
-        [self.child cleanData];
-    }
-}
-
-#pragma mark - private methods
-- (void)removeRequestIdWithRequestId:(NSInteger)requestId
-{
-    NSNumber *requestIDToRemove = nil;
-    for (NSNumber *storedRequestId in self.requestIdList) {
-        if ([storedRequestId integerValue] == requestId) {
-            requestIDToRemove = storedRequestId;
-        }
-    }
-    if (requestIDToRemove) {
-        [self.requestIdList removeObject:requestIDToRemove];
-    }
-}
-
-#pragma mark - getter/setter
-- (NSMutableArray *)requestIdList
-{
-    if (_requestIdList == nil) {
-        _requestIdList = [[NSMutableArray alloc] init];
-    }
-    return _requestIdList;
-}
-
-- (BOOL)isReachable
-{
-    return [[SunbeamAFServiceContext sharedSunbeamAFServiceContext] networkIsReachable];
-}
-
-- (BOOL)isLoading
-{
-    return [self.requestIdList count] > 0;
 }
 
 @end

@@ -7,9 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SunbeamAFHTTPService.h"
+#import "SunbeamAFServiceProperty.h"
+#import "SunbeamAFResponse.h"
+
+#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.15"
 
 @interface SunbeamAFHTTPClient : NSObject
+
+/**
+ session任务列表 {"requestId":NSURLSessionTask}
+ */
+@property (nonatomic, strong, readonly) NSMutableDictionary* sessionTaskQueue;
 
 /**
  *  单例
@@ -17,31 +25,53 @@
 + (SunbeamAFHTTPClient *) sharedSunbeamAFHTTPClient;
 
 /**
- *  开启网络请求
- *
- *  @param requestType      请求类型
- *  @param params           请求参数
- *  @param servieIdentifier 具体服务标识
- *  @param methodName       方法名
- *  @param success          成功回调
- *  @param fail             失败回调
- *
- *  @return 请求id
+ Get/Post
+ 
+ @param URI 统一资源定位符
+ @param identifier 标识
+ @param method 方法
+ @param params 参数
+ @param completion 回调
+ @return 请求id
  */
-- (NSInteger) loadSAFRequestWithParams:(SAFRequestType) requestType withParams:(NSDictionary *) params serviceIdentifier:(NSString *) servieIdentifier methodName:(NSString *) methodName success:(SunbeamAFCallback) success fail:(SunbeamAFCallback) fail;
+- (NSNumber *) loadDataTask:(NSString *) URI identifier:(NSString *) identifier method:(SAF_REQUEST_METHOD) method params:(NSDictionary *) params completion:(void (^)(SunbeamAFResponse* response)) completion;
 
 /**
- *  取消对应requestId的请求
- *
- *  @param requestId 请求id
+ Upload
+ 
+ @param URI 统一资源定位符
+ @param identifier 标识
+ @param method 方法
+ @param params 参数
+ @param uploadProgress 上传进程
+ @param completion 回调
+ @return 请求id
  */
-- (void) cancelRequestWithRequestId:(NSNumber *) requestId;
+- (NSNumber *) loadUploadTask:(NSString *) URI identifier:(NSString *) identifier method:(SAF_REQUEST_METHOD) method params:(NSDictionary *) params uploadFiles:(NSMutableDictionary *) uploadFiles uploadProgress:(NSProgress * __nullable __autoreleasing * __nullable) uploadProgress completion:(void (^)(SunbeamAFResponse* response)) completion;
 
 /**
- *  取消对应request list的请求
- *
- *  @param requestIdList 请求id list
+ Download
+ 
+ @param URI 统一资源定位符
+ @param identifier 标识
+ @param method 方法
+ @param params 参数
+ @param downloadProgress 下载进程
+ @param completion 回调
+ @return 请求id
  */
-- (void) cancelRequestWithRequestIdList:(NSArray *) requestIdList;
+- (NSNumber *) loadDownloadTask:(NSString *) URI identifier:(NSString *) identifier method:(SAF_REQUEST_METHOD) method params:(NSDictionary *) params downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(SunbeamAFResponse* response)) completion;
+
+/**
+ 取消所有网络请求
+ */
+- (void) cancelAllRequest;
+
+/**
+ 取消指定requestId的网络请求
+ 
+ @param requestId 请求id
+ */
+- (void) cancelRequest:(NSNumber *) requestId;
 
 @end

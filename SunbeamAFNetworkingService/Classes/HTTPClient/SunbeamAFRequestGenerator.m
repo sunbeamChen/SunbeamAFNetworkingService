@@ -8,111 +8,70 @@
 
 #import "SunbeamAFRequestGenerator.h"
 #import <AFNetworking/AFNetworking.h>
+#import "SunbeamAFServiceProperty.h"
+#import "SunbeamAFServiceContext.h"
 #import "SunbeamAFServiceFactory.h"
 #import "SunbeamAFUtil.h"
 
-@interface SunbeamAFRequestGenerator()
-
-@property (nonatomic, strong) AFHTTPRequestSerializer* httpJsonRequestSerializer;
-
-@property (nonatomic, strong) AFHTTPRequestSerializer* httpRequestSerializer;
-
-@end
-
 @implementation SunbeamAFRequestGenerator
 
-/**
- *  单例
- */
-+ (SunbeamAFRequestGenerator *) sharedSunbeamAFRequestGenerator
-{
-    static SunbeamAFRequestGenerator *sharedInstance = nil;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
 #pragma mark - request serializer
-- (AFHTTPRequestSerializer *)httpJsonRequestSerializer
++ (AFHTTPRequestSerializer *)getHttpJsonRequestSerializer
 {
-    if (_httpJsonRequestSerializer == nil) {
-        _httpJsonRequestSerializer = [AFJSONRequestSerializer serializer];
-        _httpJsonRequestSerializer.timeoutInterval = [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval = nil ? SunbeamAFRequestTimeoutInterval : [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval;
-        _httpJsonRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-    }
-    return _httpJsonRequestSerializer;
+    AFHTTPRequestSerializer* jsonRequestSerializer = [AFJSONRequestSerializer serializer];
+    jsonRequestSerializer.timeoutInterval = [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval = nil ? SAFRequestTimeoutInterval : [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval;
+    jsonRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
+    [jsonRequestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    return jsonRequestSerializer;
 }
 
-- (AFHTTPRequestSerializer *)httpRequestSerializer
++ (AFHTTPRequestSerializer *)getHttpRequestSerializer
 {
-    if (_httpRequestSerializer == nil) {
-        _httpRequestSerializer = [AFHTTPRequestSerializer serializer];
-        _httpRequestSerializer.timeoutInterval = [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval = nil ? SunbeamAFRequestTimeoutInterval : [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval;
-        _httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
-    }
-    return _httpRequestSerializer;
+    AFHTTPRequestSerializer* httpRequestSerializer = [AFHTTPRequestSerializer serializer];
+    httpRequestSerializer.timeoutInterval = [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval = nil ? SAFRequestTimeoutInterval : [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval;
+    httpRequestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
+    
+    return httpRequestSerializer;
 }
 
-- (SunbeamAFRequest *)generateSAFRequest:(SAFRequestType)requestType serviceIdentifier:(NSString *)serviceIdentifier requestParams:(NSDictionary *)requestParams methodName:(NSString *)methodName
++ (SunbeamAFRequest *)generateSAFRequest:(SAF_REQUEST_METHOD)requestMethod identifier:(NSString *)identifier URI:(NSString *)URI requestParams:(NSDictionary *)requestParams uploadFiles:(NSMutableDictionary *)uploadFiles
 {
-    // 获取具体服务
-    SunbeamAFBaseService* service = [[SunbeamAFServiceFactory sharedSunbeamAFServiceFactory] getSAFServiceWithServiceIdentifier:serviceIdentifier];
-    // 获取请求参数
-    NSString* contentType = [requestParams objectForKey:SunbeamAFRequestHeaderContentType];
-    NSDictionary* headerParams = [requestParams objectForKey:SunbeamAFRequestHeaderParamsKey];
-    NSDictionary* urlParams = [requestParams objectForKey:SunbeamAFRequestUrlParamsKey];
-    NSDictionary* bodyParams = [requestParams objectForKey:SunbeamAFRequestBodyParamsKey];
-    NSString* downloadFileSavePath = [requestParams objectForKey:SunbeamAFRequestDownloadFileSavePathParamsKey];
-    NSString* uploadFilePath = [requestParams objectForKey:SunbeamAFRequestUploadFilePathParamsKey];
-    // 初始化url string
+    SunbeamAFBaseService* service = [[SunbeamAFServiceFactory sharedSunbeamAFServiceFactory] getSAFService:identifier];
+    
+    NSDictionary* headerParams = [requestParams objectForKey:SAFRequestHeaderParamsKey];
+    NSDictionary* urlParams = [requestParams objectForKey:SAFRequestUrlParamsKey];
+    NSDictionary* bodyParams = [requestParams objectForKey:SAFRequestBodyParamsKey];
+    
     NSString* urlString = nil;
     if (urlParams == nil) {
-        urlString = [NSString stringWithFormat:@"%@%@%@%@", service.protocol, service.domain, service.version, methodName];
+        urlString = [NSString stringWithFormat:@"%@%@%@%@", service.protocol, service.domain, service.version, URI];
     } else {
-        urlString = [NSString stringWithFormat:@"%@%@%@%@?%@", service.protocol, service.domain, service.version, methodName, [SunbeamAFUtil urlParamsString:urlParams]];
+        urlString = [NSString stringWithFormat:@"%@%@%@%@?%@", service.protocol, service.domain, service.version, URI, [SunbeamAFUtil urlParamsString:urlParams]];
     }
-    AFHTTPRequestSerializer* requestSerializer = nil;
-    if (contentType != nil) {
-        requestSerializer = self.httpRequestSerializer;
-        [requestSerializer setValue:contentType forHTTPHeaderField:@"Content-Type"];
-    } else {
-        requestSerializer = self.httpJsonRequestSerializer;
-        [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    }
-    // 初始化url request
+    
     NSMutableURLRequest* mutableRequest = nil;
-    switch (requestType) {
-        case SAFRequestTypeGET:
+    switch (requestMethod) {
+        case GET:
         {
-            mutableRequest = [requestSerializer requestWithMethod:@"GET" URLString:urlString parameters:bodyParams error:nil];
+            mutableRequest = [[self getHttpJsonRequestSerializer] requestWithMethod:@"GET" URLString:urlString parameters:bodyParams error:nil];
             break;
         }
-        case SAFRequestTypePOST:
+        case POST:
         {
-            mutableRequest = [requestSerializer requestWithMethod:@"POST" URLString:urlString parameters:bodyParams error:nil];
+            mutableRequest = [[self getHttpJsonRequestSerializer] requestWithMethod:@"POST" URLString:urlString parameters:bodyParams error:nil];
             break;
         }
-        case SAFRequestTypeDownload:
+        case DOWNLOAD:
         {
-            mutableRequest = [requestSerializer requestWithMethod:@"GET" URLString:urlString parameters:bodyParams error:nil];
+            mutableRequest = [[self getHttpRequestSerializer] requestWithMethod:@"GET" URLString:urlString parameters:nil error:nil];
             break;
         }
-        case SAFRequestTypeUpload:
+        case UPLOAD:
         {
-            mutableRequest = [requestSerializer multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                
-                if ([SunbeamAFServiceContext sharedSunbeamAFServiceContext].uploadFileKey) {
-                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:uploadFilePath] name:[SunbeamAFServiceContext sharedSunbeamAFServiceContext].uploadFileKey error:nil];
-                } else {
-                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:uploadFilePath] name:@"file" error:nil];
-                }
-                
-                if (bodyParams != nil && [bodyParams count] > 0) {
-                    for (NSString* key in [bodyParams allKeys]) {
-                        [formData appendPartWithFormData:[[bodyParams objectForKey:key] dataUsingEncoding:NSUTF8StringEncoding] name:key];
-                    }
+            mutableRequest = [[self getHttpRequestSerializer] multipartFormRequestWithMethod:@"POST" URLString:urlString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                for (NSString* fileKey in [uploadFiles allKeys]) {
+                    [formData appendPartWithFileURL:[NSURL fileURLWithPath:[uploadFiles objectForKey:fileKey]] name:fileKey error:nil];
                 }
             } error:nil];
             break;
@@ -121,12 +80,14 @@
         default:
             break;
     }
+    
     if (headerParams != nil && [headerParams count] > 0) {
         for (NSString* key in [headerParams allKeys]) {
             [mutableRequest addValue:[headerParams objectForKey:key] forHTTPHeaderField:key];
         }
     }
-    return [SunbeamAFRequest getSAFRequest:requestType request:mutableRequest urlString:urlString cerFilePath:service.cerFilePath headerParameters:[headerParams mutableCopy] urlParameters:[urlParams mutableCopy] bodyParameters:[bodyParams mutableCopy] downloadFileSavePath:downloadFileSavePath uploadFilePath:uploadFilePath];
+    
+    return [SunbeamAFRequest getSAFRequest:requestMethod request:mutableRequest urlString:urlString useSSLCertificates:service.useSSLCertificates headerParameters:headerParams urlParameters:urlParams bodyParameters:bodyParams uploadFiles:uploadFiles];
 }
 
 @end

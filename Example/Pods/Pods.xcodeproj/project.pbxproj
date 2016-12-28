@@ -10,12 +10,73 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>01BA37B599FB6F43D29508F0CDE38CAC</key>
+		<key>01F38B2F7ECE61A5C9AD34EBFF5AD403</key>
 		<dict>
-			<key>fileRef</key>
-			<string>325F02105B8AD905F5B619FB53EFC7D5</string>
+			<key>baseConfigurationReference</key>
+			<string>0465F6AB54B98E68FC83B8E3E5838D4A</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Pods-SunbeamAFNetworkingService_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamAFNetworkingService_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>0465F6AB54B98E68FC83B8E3E5838D4A</key>
 		<dict>
@@ -30,13 +91,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>048057B786AEF2C6C228C3236985CD19</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F4B206C5C460048E9723DFAC46E5E116</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>05765719F5D1B7E6A9906A8C49042311</key>
 		<dict>
 			<key>isa</key>
@@ -48,12 +102,19 @@
 			<key>targetProxy</key>
 			<string>534F11F460DC7B90B756AC2C4E85981A</string>
 		</dict>
-		<key>062C58F582B5779CB7AA8CF3A55B8642</key>
+		<key>05E769D69D6EA6DE6DF4331E4F513FA8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>5D694EEE35CF0506C0504FE3399A069D</string>
+			<string>BE7072C842AE1613D87A38F15E05FA4C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>07BE7147A4BC282D53A1C600C5DE5756</key>
 		<dict>
@@ -117,6 +178,74 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>0E91E1E0182DC1E1CFE2B02F138C5E68</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E5E222E3954B7E1A085E4FF1473D8034</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Pods-SunbeamAFNetworkingService_Example.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamAFNetworkingService_Example</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
 		<key>114AFB315A676864A107425F120976A8</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -153,19 +282,6 @@
 			<string>114AFB315A676864A107425F120976A8</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>13EDB490A1F6EF2D429FFF18DBC688B7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFRequestGenerator.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>164647013D7C20637F5B7B756CED301C</key>
 		<dict>
@@ -223,18 +339,12 @@
 			<key>remoteInfo</key>
 			<string>AFNetworking</string>
 		</dict>
-		<key>17E9747ECFDCED94C3324EEECDD60A42</key>
+		<key>17C03DF22145D384C029F8B4CE30ACC8</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>D2E07F46579D9038124586A9E0D6DC64</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFBaseService.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>18B4BCB94EA5F4C97366366DFCCD2747</key>
 		<dict>
@@ -249,10 +359,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>19DA48D1B8DF89FE4182801ECCEE9CAB</key>
+		<key>19C1A9B035CE619449B4CA06AFDAC2F5</key>
 		<dict>
 			<key>fileRef</key>
-			<string>799392332D4D74BAA36A5BD5E1B0E26E</string>
+			<string>69F7E89CA29C83D75EDDE7CD9DE0BC88</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -263,6 +373,26 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>1C897046EDE86149CA78A5737693E661</key>
+		<dict>
+			<key>fileRef</key>
+			<string>364862D56AE21E6706C21E28E29D1652</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1CE7C038E3B47140AC2F512AF231E8DA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFRequest.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>1EA06503C7AF1CA5E13950E3E7D7830E</key>
 		<dict>
 			<key>fileRef</key>
@@ -270,32 +400,10 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>23C7B4C5547B9E7A22E43D833D1C8C48</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>7DBCC8C69CE5B272E067382CF19A23C0</string>
-				<string>9F82FB34833E7AD1253FCEE18DE98777</string>
-				<string>17E9747ECFDCED94C3324EEECDD60A42</string>
-				<string>41CA2994E6902F2D01CA8868156E75E6</string>
-				<string>58D781ED62D0A6AF752307BB802F3F3D</string>
-				<string>7575F68D66E0B873C42670E7EC28E30E</string>
-				<string>C03C105468C3AB3AA60FAC29079EFDBA</string>
-				<string>36389BA1CFABFC7E9A6989C74A63B897</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Standard</string>
-			<key>path</key>
-			<string>Standard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>24CF686EFE9279D686D2CB7EE9335576</key>
+		<key>20F0614C9050A57B7F2577A63D703A12</key>
 		<dict>
 			<key>fileRef</key>
-			<string>FCFB5D04A6E30FE2509D6D880C80DAD5</string>
+			<string>AEE8EDA9DAA0D9B11D0A68C8A2792CE2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -305,6 +413,19 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>24B66CA20FF7595C59ACD3227E2F563A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFRequestGenerator.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>25A01A070F81D39B1F4E9F9D636363DB</key>
 		<dict>
@@ -325,8 +446,8 @@
 		<dict>
 			<key>buildConfigurations</key>
 			<array>
-				<string>9FD30043B56C4C4BEE405454F9AF92FD</string>
-				<string>A99F81CFCF788D0864B16A901A10D913</string>
+				<string>92231FE90F25A33AD2E965CBE7B9AB61</string>
+				<string>BFBC898B83BBF389E0E7F1B598FCDD82</string>
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<string>0</string>
@@ -371,20 +492,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>293AE35ED076C5D5E16DA3A33DBB56D7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CFCA270DE77EC5F3EA62194E6F15D4F0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Project</string>
-				</array>
-			</dict>
-		</dict>
 		<key>2CD6664A6D6A5FB064D89DB9256C8227</key>
 		<dict>
 			<key>fileRef</key>
@@ -396,8 +503,8 @@
 		<dict>
 			<key>buildConfigurations</key>
 			<array>
-				<string>3FA2475660FFC880302AD18E29B2E5FC</string>
-				<string>F325026B55060D3B22BEC0BAB5FA7344</string>
+				<string>47BEF9D903506B003EA5C2B249729489</string>
+				<string>AAF678CED40D3499169D10F63CA0719E</string>
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<string>0</string>
@@ -456,19 +563,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>325F02105B8AD905F5B619FB53EFC7D5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFResponse.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>32BE0FB08D9ECD2974197D862E320E36</key>
 		<dict>
 			<key>fileRef</key>
@@ -482,6 +576,22 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>3386B79AD129C76832FAA3D106D20BFB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BE7072C842AE1613D87A38F15E05FA4C</string>
+				<string>8A7A3CBDCBBD1A88099F15A924949421</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Helper</string>
+			<key>path</key>
+			<string>Helper</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>34BEE08ED8F8B9B3B939D4D732CFBEFE</key>
 		<dict>
@@ -514,8 +624,8 @@
 		<dict>
 			<key>buildConfigurations</key>
 			<array>
-				<string>4BF27F1289DB7659DBD1C6F110468129</string>
-				<string>F5E09D04BA051BBB908D296AE6752243</string>
+				<string>01F38B2F7ECE61A5C9AD34EBFF5AD403</string>
+				<string>0E91E1E0182DC1E1CFE2B02F138C5E68</string>
 			</array>
 			<key>defaultConfigurationIsVisible</key>
 			<string>0</string>
@@ -524,7 +634,7 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>36389BA1CFABFC7E9A6989C74A63B897</key>
+		<key>364862D56AE21E6706C21E28E29D1652</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -533,25 +643,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>SunbeamAFServiceFactory.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>364B71E92037D9AC80DF7A3D88F5A40D</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FCFB5D04A6E30FE2509D6D880C80DAD5</string>
-				<string>A56D161EA82233F26F1BA11F7DB792F0</string>
-				<string>DE42BFABF121D5680D3283CF0D72E258</string>
-				<string>23C7B4C5547B9E7A22E43D833D1C8C48</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
+			<string>SunbeamAFServiceContext.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -597,6 +689,13 @@
 			<string>AFNetworking/AFSecurityPolicy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3989EA40D822308455EB77B62E22A3C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FC55BF353A85E38C3A0A9B0B52A48DFC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>3A28D5B30EC8769D8B0ADD54447AC1C4</key>
 		<dict>
@@ -658,6 +757,43 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>3D91063E0E8DD4ED8A2FD1297725FA94</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFResponse.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DBDE7A06C70363B644E522A5F5E1DD8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BD646FC671B44249560A372E19A83582</string>
+				<string>19C1A9B035CE619449B4CA06AFDAC2F5</string>
+				<string>17C03DF22145D384C029F8B4CE30ACC8</string>
+				<string>3989EA40D822308455EB77B62E22A3C0</string>
+				<string>89B78012BFCC1B4B57989DFA85BBBF7B</string>
+				<string>5D1B2258EFEAF3A05D6383369C86F173</string>
+				<string>49F960D7F4D46C3D65A142633BD9592B</string>
+				<string>D336A8D0DAF326B7016B71F8651147BE</string>
+				<string>80355941FB90FC9F4752626F91CFDAC3</string>
+				<string>1C897046EDE86149CA78A5737693E661</string>
+				<string>C76CE12F4104E3AFC25E4B7FCFA16A9E</string>
+				<string>A6A426964EF3190ADEA0A603CAEFEABC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>3E22A45AF58559421975884FCB04C98C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -673,7 +809,175 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3FA2475660FFC880302AD18E29B2E5FC</key>
+		<key>3F3533F0A27FB978B453972606D5D9F5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFServiceFactory.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4004CB328D9B73234395795631AF675A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AFNetworkActivityIndicatorManager.m</string>
+			<key>path</key>
+			<string>UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>401C2DDD1436B4AD6B3A43D775389EA4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8CD830C93513B12193D93249388C9465</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>405E04285E54A960CDDF47B1DBCF1115</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFBaseManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4126FC06B09C1514C4623BEF344EEDF2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C1CE62259319F6CD331B029EF7A82654</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>41F2C8F207D9BC243B2A97D84EF5FF72</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>90A4CF21AFF38A8C6A2F10E8BE185689</string>
+			<key>remoteInfo</key>
+			<string>SunbeamAFNetworkingService</string>
+		</dict>
+		<key>4242D29645CEDE64E2787C90A6F6807C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AFURLConnectionOperation.m</string>
+			<key>path</key>
+			<string>AFNetworking/AFURLConnectionOperation.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>42BE18C5153712A9FC2EB7D6B5E83D91</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFNetworkingService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>42C8A033FDB13B664AA38A0CF7B1B0B6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>790E43AA9C021D8E56E511AEF8B430EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>4364C9E9F973C7CEE2002E5813609175</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>SunbeamAFNetworkingService.framework</string>
+			<key>path</key>
+			<string>SunbeamAFNetworkingService.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>43BC8D2611C04A47C0BE9FFB228E07A5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>138828BFE2271F973228D96F337454BB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>457AC41409DB67741790BD03BFA7D354</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>AFNetworking.h</string>
+			<key>path</key>
+			<string>AFNetworking/AFNetworking.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47BEF9D903506B003EA5C2B249729489</key>
 		<dict>
 			<key>buildSettings</key>
 			<dict>
@@ -738,7 +1042,7 @@
 				<key>GCC_WARN_UNUSED_VARIABLE</key>
 				<string>YES</string>
 				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
+				<string>8.0</string>
 				<key>ONLY_ACTIVE_ARCH</key>
 				<string>YES</string>
 				<key>STRIP_INSTALLED_PRODUCT</key>
@@ -750,154 +1054,6 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
-		</dict>
-		<key>4004CB328D9B73234395795631AF675A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>AFNetworkActivityIndicatorManager.m</string>
-			<key>path</key>
-			<string>UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>401C2DDD1436B4AD6B3A43D775389EA4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8CD830C93513B12193D93249388C9465</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>4126FC06B09C1514C4623BEF344EEDF2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C1CE62259319F6CD331B029EF7A82654</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>41CA2994E6902F2D01CA8868156E75E6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFBaseService.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>41F2C8F207D9BC243B2A97D84EF5FF72</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>90A4CF21AFF38A8C6A2F10E8BE185689</string>
-			<key>remoteInfo</key>
-			<string>SunbeamAFNetworkingService</string>
-		</dict>
-		<key>4242D29645CEDE64E2787C90A6F6807C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>AFURLConnectionOperation.m</string>
-			<key>path</key>
-			<string>AFNetworking/AFURLConnectionOperation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4348AF066E01B5703E5A3BE03EAAB24A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>36389BA1CFABFC7E9A6989C74A63B897</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4364C9E9F973C7CEE2002E5813609175</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>SunbeamAFNetworkingService.framework</string>
-			<key>path</key>
-			<string>SunbeamAFNetworkingService.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>43BC8D2611C04A47C0BE9FFB228E07A5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>138828BFE2271F973228D96F337454BB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>457AC41409DB67741790BD03BFA7D354</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>AFNetworking.h</string>
-			<key>path</key>
-			<string>AFNetworking/AFNetworking.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>45D195CC5D5B5C90EE0735791468B1D5</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFRequestGenerator.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4878C70B21CA37D7CB8A476BF986741B</key>
 		<dict>
@@ -924,6 +1080,13 @@
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
+		<key>49F960D7F4D46C3D65A142633BD9592B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>24B66CA20FF7595C59ACD3227E2F563A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>4A518EBE808D9AA8C73682501DE77162</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -936,87 +1099,6 @@
 			<string>AFNetworking.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4B727C9CC8F1F64480DACF77D5D828EF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFResponse.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4BF27F1289DB7659DBD1C6F110468129</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>0465F6AB54B98E68FC83B8E3E5838D4A</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Pods-SunbeamAFNetworkingService_Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_SunbeamAFNetworkingService_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
 		</dict>
 		<key>4C01E044DA0448A79AEEF972A4B0780D</key>
 		<dict>
@@ -1059,19 +1141,31 @@
 				</array>
 			</dict>
 		</dict>
-		<key>4FECD61D4C3573E3506C749D26EB523D</key>
+		<key>4FA45D0DBBFDF95C54CA0359A7B7C6A0</key>
 		<dict>
-			<key>fileRef</key>
-			<string>589F02B24B08E26E4ACACEB5843987A7</string>
+			<key>children</key>
+			<array>
+				<string>790E43AA9C021D8E56E511AEF8B430EF</string>
+				<string>D2E07F46579D9038124586A9E0D6DC64</string>
+				<string>780450CD05F206ABB23262C1DCDA3BE5</string>
+				<string>FC55BF353A85E38C3A0A9B0B52A48DFC</string>
+				<string>1CE7C038E3B47140AC2F512AF231E8DA</string>
+				<string>6DCD13ABBB8A092F8F073B48A223B09E</string>
+				<string>AEE8EDA9DAA0D9B11D0A68C8A2792CE2</string>
+				<string>24B66CA20FF7595C59ACD3227E2F563A</string>
+				<string>3D91063E0E8DD4ED8A2FD1297725FA94</string>
+				<string>D241BDDA34EBF9ED4246C34CFF9F814E</string>
+				<string>57CB2FEFB4CADFBD53B6E6AFDF352344</string>
+				<string>EC0987C7135EB734237377A77787D891</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Project</string>
-				</array>
-			</dict>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>HTTPClient</string>
+			<key>path</key>
+			<string>HTTPClient</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>534F11F460DC7B90B756AC2C4E85981A</key>
 		<dict>
@@ -1085,6 +1179,20 @@
 			<string>4878C70B21CA37D7CB8A476BF986741B</string>
 			<key>remoteInfo</key>
 			<string>AFNetworking</string>
+		</dict>
+		<key>53F88019F797FC55509F8F7D74554269</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FD1F7162869F5E3B0767326523FBBC30</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>540155AAA7E97F0D48A9ECCC66CB3EAC</key>
 		<dict>
@@ -1175,7 +1283,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>589F02B24B08E26E4ACACEB5843987A7</key>
+		<key>57CB2FEFB4CADFBD53B6E6AFDF352344</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1184,20 +1292,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>SunbeamAFHTTPService.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>58D781ED62D0A6AF752307BB802F3F3D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFServiceContext.h</string>
+			<string>SunbeamAFResponseConstructor.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1222,6 +1317,27 @@
 			<string>AFNetworking/AFHTTPRequestOperation.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5C9FDE061F23952A342828A0502E180B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8D672A2CCCDF42FE035ACE8686969A48</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>5D1B2258EFEAF3A05D6383369C86F173</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6DCD13ABBB8A092F8F073B48A223B09E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>5D5E80BB7AD3CDF3B4215CF698ECA501</key>
 		<dict>
@@ -1293,20 +1409,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>5F9DE9D4E7805880DD091EB0146A21B9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C03C105468C3AB3AA60FAC29079EFDBA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>60C3D26E2C8843CA90222B621C57A0DA</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1336,20 +1438,6 @@
 			<string>Pods-SunbeamAFNetworkingService_Tests-acknowledgements.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>63FC3B2F216B02B3B0586DF90082CAE0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7DBCC8C69CE5B272E067382CF19A23C0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>662F2B693F4836F935DF7B3734AABDE6</key>
 		<dict>
@@ -1436,6 +1524,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>69F7E89CA29C83D75EDDE7CD9DE0BC88</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFBaseService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>69FDCA45562D02A8AB196E1718874625</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1462,14 +1563,34 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6AF1D47A8D394F8BF6277B78AD8425A1</key>
+		<key>6B9206662E27D430632A59328755F63E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFServiceContext.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6BF2EB153BB2BD0812037C6C7C22A4C6</key>
 		<dict>
 			<key>fileRef</key>
-			<string>CBE680CBDE4AFA1419C205E7935FDBC0</string>
+			<string>860241D9B1F1A0824264BB94B4E66BB1</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
-		<key>6D2A047FA84DA1C8A252D773DC7DE506</key>
+		<key>6DCD13ABBB8A092F8F073B48A223B09E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1478,7 +1599,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>SunbeamAFHTTPClient.m</string>
+			<string>SunbeamAFRequest.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1495,19 +1616,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>7575F68D66E0B873C42670E7EC28E30E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFServiceContext.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>76C1FA68EFCD242119622AE2CEB4D24F</key>
 		<dict>
@@ -1536,6 +1644,60 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>780450CD05F206ABB23262C1DCDA3BE5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFHTTPService.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7835B72B91748BD6CCA1F9C48683DFD7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>42BE18C5153712A9FC2EB7D6B5E83D91</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>7847E8984DC0F4BCD4623BF7091F9ACA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>780450CD05F206ABB23262C1DCDA3BE5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>790E43AA9C021D8E56E511AEF8B430EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFHTTPClient.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>7933BED914F3A3F9E9CE6A5BEAD9B336</key>
 		<dict>
@@ -1572,19 +1734,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>799392332D4D74BAA36A5BD5E1B0E26E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFUtil.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>7999F436677B92F6DDA1C3D45B67762F</key>
 		<dict>
 			<key>fileRef</key>
@@ -1606,29 +1755,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>7A69C33F5127E694E28403090ED08854</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>E89F325177F16C9B937ACDB5E8501501</string>
-				<string>E3B7843ABF4CA7C078677BB9AA7CAF45</string>
-				<string>D6A8A1ACA163D3CC747EC0FA395FE7E0</string>
-				<string>048057B786AEF2C6C228C3236985CD19</string>
-				<string>062C58F582B5779CB7AA8CF3A55B8642</string>
-				<string>6AF1D47A8D394F8BF6277B78AD8425A1</string>
-				<string>DAFF19A4615DC4D8DFC379A0A4D7D8ED</string>
-				<string>01BA37B599FB6F43D29508F0CDE38CAC</string>
-				<string>BFFE828E1EE9E4ABF0F89AACFDB86755</string>
-				<string>4348AF066E01B5703E5A3BE03EAAB24A</string>
-				<string>19DA48D1B8DF89FE4182801ECCEE9CAB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
@@ -1642,19 +1768,6 @@
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DBCC8C69CE5B272E067382CF19A23C0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFBaseManager.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1696,19 +1809,12 @@
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
-		<key>7EAC7D5A99FCBFD5A0F506B5BA462811</key>
+		<key>80355941FB90FC9F4752626F91CFDAC3</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B25CF6D6341932DEE7255AC358970F89</string>
+			<string>EC0987C7135EB734237377A77787D891</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Project</string>
-				</array>
-			</dict>
 		</dict>
 		<key>81E3F36760F0DA59414DC0413C330B76</key>
 		<dict>
@@ -1838,7 +1944,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>364B71E92037D9AC80DF7A3D88F5A40D</string>
+				<string>BB340B23C0DEB5DCE97CB806711662E1</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -1918,30 +2024,23 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>89F706CA8B401B6EB46E247FA7260ED2</key>
+		<key>89B78012BFCC1B4B57989DFA85BBBF7B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4B727C9CC8F1F64480DACF77D5D828EF</string>
+			<string>5D694EEE35CF0506C0504FE3399A069D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
-		<key>8B86CD32E15983D3D0FAF37660D712EC</key>
+		<key>8A7A3CBDCBBD1A88099F15A924949421</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>SunbeamAFHTTPClient.h</string>
+			<string>SunbeamAFUtil.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1957,6 +2056,19 @@
 			<string>UIButton+AFNetworking.h</string>
 			<key>path</key>
 			<string>UIKit+AFNetworking/UIButton+AFNetworking.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8D672A2CCCDF42FE035ACE8686969A48</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFServiceProperty.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2027,9 +2139,9 @@
 			<string>894D20C374A8137226721C4DF0489407</string>
 			<key>buildPhases</key>
 			<array>
-				<string>7A69C33F5127E694E28403090ED08854</string>
+				<string>3DBDE7A06C70363B644E522A5F5E1DD8</string>
 				<string>082BF9DC810EE95F49B050EE0EE77796</string>
-				<string>E5003355A3E67AA5B54235242199CF65</string>
+				<string>D8A0B53D600A90ADF16346D2DBC7C885</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -2047,6 +2159,74 @@
 			<string>4364C9E9F973C7CEE2002E5813609175</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>92231FE90F25A33AD2E965CBE7B9AB61</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B11E3599D72E5A7BFD3E19BBF6810F74</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Pods-SunbeamAFNetworkingService_Tests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamAFNetworkingService_Tests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>92BD2D4CFEE63C0070E03DD0B59B7585</key>
 		<dict>
@@ -2272,19 +2452,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>9F82FB34833E7AD1253FCEE18DE98777</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFBaseManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9FB2B1533D102AD66E0900A433DD8A81</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2296,73 +2463,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9FD30043B56C4C4BEE405454F9AF92FD</key>
+		<key>9FCA136A1C6D4F7A1E2B57D76D209189</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>B11E3599D72E5A7BFD3E19BBF6810F74</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Pods-SunbeamAFNetworkingService_Tests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_SunbeamAFNetworkingService_Tests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFBaseManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A0657220D8764542D018CB2ED4E15CFB</key>
 		<dict>
@@ -2376,6 +2488,20 @@
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>A06CCEDB4B62BFC34D921B24ED269454</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3D91063E0E8DD4ED8A2FD1297725FA94</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>A151745DED7D09C365E2699BA154940D</key>
 		<dict>
@@ -2407,21 +2533,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A56D161EA82233F26F1BA11F7DB792F0</key>
+		<key>A6A426964EF3190ADEA0A603CAEFEABC</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>B25CF6D6341932DEE7255AC358970F89</string>
-				<string>799392332D4D74BAA36A5BD5E1B0E26E</string>
-			</array>
+			<key>fileRef</key>
+			<string>8A7A3CBDCBBD1A88099F15A924949421</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Helper</string>
-			<key>path</key>
-			<string>Helper</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>A78CB9DDCA338DC66015FA65B1E768B2</key>
 		<dict>
@@ -2498,68 +2615,71 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A99F81CFCF788D0864B16A901A10D913</key>
+		<key>AAF678CED40D3499169D10F63CA0719E</key>
 		<dict>
-			<key>baseConfigurationReference</key>
-			<string>4C01E044DA0448A79AEEF972A4B0780D</string>
 			<key>buildSettings</key>
 			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Pods-SunbeamAFNetworkingService_Tests.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
 				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_SunbeamAFNetworkingService_Tests</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
+				<key>CLANG_ANALYZER_NONNULL</key>
 				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>POD_CONFIGURATION_RELEASE=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
 			</dict>
 			<key>isa</key>
 			<string>XCBuildConfiguration</string>
@@ -2614,6 +2734,56 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>AEE8EDA9DAA0D9B11D0A68C8A2792CE2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFRequestGenerator.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AFBCADA8F28BFE6B2AC594E1CEE28D71</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>405E04285E54A960CDDF47B1DBCF1115</string>
+				<string>9FCA136A1C6D4F7A1E2B57D76D209189</string>
+				<string>CAAB0E8A51D82690C50DC929FAEBB625</string>
+				<string>69F7E89CA29C83D75EDDE7CD9DE0BC88</string>
+				<string>6B9206662E27D430632A59328755F63E</string>
+				<string>364862D56AE21E6706C21E28E29D1652</string>
+				<string>FD1F7162869F5E3B0767326523FBBC30</string>
+				<string>3F3533F0A27FB978B453972606D5D9F5</string>
+				<string>8D672A2CCCDF42FE035ACE8686969A48</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Standard</string>
+			<key>path</key>
+			<string>Standard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B0A28A1FD4A6096D964D74C075468D25</key>
+		<dict>
+			<key>fileRef</key>
+			<string>57CB2FEFB4CADFBD53B6E6AFDF352344</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>B11E3599D72E5A7BFD3E19BBF6810F74</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2637,19 +2807,6 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>AFNetworking-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B25CF6D6341932DEE7255AC358970F89</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFUtil.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2682,6 +2839,20 @@
 			<string>NSURLSession</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B6A8B06E2E55306B42C530FB17FC9D57</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CAAB0E8A51D82690C50DC929FAEBB625</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B78CCF0B6DB81F206EB338F172DAFA51</key>
 		<dict>
@@ -2720,6 +2891,24 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>BB340B23C0DEB5DCE97CB806711662E1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>42BE18C5153712A9FC2EB7D6B5E83D91</string>
+				<string>3386B79AD129C76832FAA3D106D20BFB</string>
+				<string>4FA45D0DBBFDF95C54CA0359A7B7C6A0</string>
+				<string>AFBCADA8F28BFE6B2AC594E1CEE28D71</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>BB82DC2891A35AC22DD6D5CE4CAE4364</key>
 		<dict>
 			<key>fileRef</key>
@@ -2742,19 +2931,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BBF0E31AE792E1BD21AF8C0028998AE7</key>
+		<key>BD646FC671B44249560A372E19A83582</key>
 		<dict>
 			<key>fileRef</key>
-			<string>17E9747ECFDCED94C3324EEECDD60A42</string>
+			<string>9FCA136A1C6D4F7A1E2B57D76D209189</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+		</dict>
+		<key>BE7072C842AE1613D87A38F15E05FA4C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SunbeamAFUtil.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>BEC796A6EF07A12A3C1B2C473A6C4743</key>
 		<dict>
@@ -2771,25 +2966,73 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BFFE828E1EE9E4ABF0F89AACFDB86755</key>
+		<key>BFBC898B83BBF389E0E7F1B598FCDD82</key>
 		<dict>
-			<key>fileRef</key>
-			<string>7575F68D66E0B873C42670E7EC28E30E</string>
+			<key>baseConfigurationReference</key>
+			<string>4C01E044DA0448A79AEEF972A4B0780D</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>CURRENT_PROJECT_VERSION</key>
+				<string>1</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>DEFINES_MODULE</key>
+				<string>YES</string>
+				<key>DYLIB_COMPATIBILITY_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_CURRENT_VERSION</key>
+				<string>1</string>
+				<key>DYLIB_INSTALL_NAME_BASE</key>
+				<string>@rpath</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Info.plist</string>
+				<key>INSTALL_PATH</key>
+				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<array>
+					<string>$(inherited)</string>
+					<string>@executable_path/Frameworks</string>
+					<string>@loader_path/Frameworks</string>
+				</array>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MODULEMAP_FILE</key>
+				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Tests/Pods-SunbeamAFNetworkingService_Tests.modulemap</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
+				<key>PRODUCT_NAME</key>
+				<string>Pods_SunbeamAFNetworkingService_Tests</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VERSIONING_SYSTEM</key>
+				<string>apple-generic</string>
+				<key>VERSION_INFO_PREFIX</key>
+				<string></string>
+			</dict>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>C03C105468C3AB3AA60FAC29079EFDBA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFServiceFactory.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
 		</dict>
 		<key>C087B9B3A493BC8232CBA4DB1CB47A67</key>
 		<dict>
@@ -2827,6 +3070,20 @@
 			<string>AFNetworking/AFHTTPRequestOperationManager.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C5093257D91C45CF9D41F7A71AA5775A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1CE7C038E3B47140AC2F512AF231E8DA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>C51B96A7E543F72CD7925968E35DC041</key>
 		<dict>
@@ -2897,6 +3154,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>C76CE12F4104E3AFC25E4B7FCFA16A9E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3F3533F0A27FB978B453972606D5D9F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>C7B655603FB1089A5E2D28FCE12DF12F</key>
 		<dict>
 			<key>fileRef</key>
@@ -2944,32 +3208,18 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>CBE680CBDE4AFA1419C205E7935FDBC0</key>
+		<key>CAAB0E8A51D82690C50DC929FAEBB625</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>SunbeamAFRequest.m</string>
+			<string>SunbeamAFBaseService.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CBEDCEB9287CB86DFB747914AD4035A5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8B86CD32E15983D3D0FAF37660D712EC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Project</string>
-				</array>
-			</dict>
 		</dict>
 		<key>CC3B0A51630E767A3C13B51553EEE1F5</key>
 		<dict>
@@ -2984,6 +3234,20 @@
 			<string>Targets Support Files</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CD8ECF55A0CC7547966FAD5F239C4D6D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>405E04285E54A960CDDF47B1DBCF1115</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>CE6FC40031933CF1D0545D0AECC8C14A</key>
 		<dict>
@@ -3020,19 +3284,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>CFCA270DE77EC5F3EA62194E6F15D4F0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SunbeamAFRequest.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>D049087174676C7C625FCF440F28B5A4</key>
 		<dict>
 			<key>children</key>
@@ -3057,19 +3308,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D0A141735C52E7E4CC51A1D85B3072B3</key>
+		<key>D241BDDA34EBF9ED4246C34CFF9F814E</key>
 		<dict>
-			<key>fileRef</key>
-			<string>860241D9B1F1A0824264BB94B4E66BB1</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFResponse.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D2A9F5CEBB28B52D2BC77AB22F4B37D4</key>
 		<dict>
@@ -3085,6 +3335,26 @@
 			<string>AFNetworking/AFURLSessionManager.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D2E07F46579D9038124586A9E0D6DC64</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFHTTPClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D336A8D0DAF326B7016B71F8651147BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D241BDDA34EBF9ED4246C34CFF9F814E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>D368A0D8E440ED2393A424F47A6C5549</key>
 		<dict>
@@ -3170,13 +3440,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D6A8A1ACA163D3CC747EC0FA395FE7E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6D2A047FA84DA1C8A252D773DC7DE506</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>D7C1594DC6A0E38E33E8971C288A9F82</key>
 		<dict>
 			<key>fileRef</key>
@@ -3213,12 +3476,31 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>DAFF19A4615DC4D8DFC379A0A4D7D8ED</key>
+		<key>D8A0B53D600A90ADF16346D2DBC7C885</key>
 		<dict>
-			<key>fileRef</key>
-			<string>45D195CC5D5B5C90EE0735791468B1D5</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>CD8ECF55A0CC7547966FAD5F239C4D6D</string>
+				<string>B6A8B06E2E55306B42C530FB17FC9D57</string>
+				<string>42C8A033FDB13B664AA38A0CF7B1B0B6</string>
+				<string>7847E8984DC0F4BCD4623BF7091F9ACA</string>
+				<string>6BF2EB153BB2BD0812037C6C7C22A4C6</string>
+				<string>7835B72B91748BD6CCA1F9C48683DFD7</string>
+				<string>C5093257D91C45CF9D41F7A71AA5775A</string>
+				<string>20F0614C9050A57B7F2577A63D703A12</string>
+				<string>A06CCEDB4B62BFC34D921B24ED269454</string>
+				<string>B0A28A1FD4A6096D964D74C075468D25</string>
+				<string>E6ABD28506883F4ECBBBD211D2DA2CD5</string>
+				<string>53F88019F797FC55509F8F7D74554269</string>
+				<string>5C9FDE061F23952A342828A0502E180B</string>
+				<string>05E769D69D6EA6DE6DF4331E4F513FA8</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>DB840EF5FD9645993A399CDE849E784C</key>
 		<dict>
@@ -3240,30 +3522,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>DE42BFABF121D5680D3283CF0D72E258</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>8B86CD32E15983D3D0FAF37660D712EC</string>
-				<string>6D2A047FA84DA1C8A252D773DC7DE506</string>
-				<string>589F02B24B08E26E4ACACEB5843987A7</string>
-				<string>F4B206C5C460048E9723DFAC46E5E116</string>
-				<string>CFCA270DE77EC5F3EA62194E6F15D4F0</string>
-				<string>CBE680CBDE4AFA1419C205E7935FDBC0</string>
-				<string>13EDB490A1F6EF2D429FFF18DBC688B7</string>
-				<string>45D195CC5D5B5C90EE0735791468B1D5</string>
-				<string>4B727C9CC8F1F64480DACF77D5D828EF</string>
-				<string>325F02105B8AD905F5B619FB53EFC7D5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>HTTPClient</string>
-			<key>path</key>
-			<string>HTTPClient</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>DF4112FFA156222BF7053EF22A8827B9</key>
 		<dict>
@@ -3375,37 +3633,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E3B7843ABF4CA7C078677BB9AA7CAF45</key>
-		<dict>
-			<key>fileRef</key>
-			<string>41CA2994E6902F2D01CA8868156E75E6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E5003355A3E67AA5B54235242199CF65</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>63FC3B2F216B02B3B0586DF90082CAE0</string>
-				<string>BBF0E31AE792E1BD21AF8C0028998AE7</string>
-				<string>CBEDCEB9287CB86DFB747914AD4035A5</string>
-				<string>4FECD61D4C3573E3506C749D26EB523D</string>
-				<string>D0A141735C52E7E4CC51A1D85B3072B3</string>
-				<string>24CF686EFE9279D686D2CB7EE9335576</string>
-				<string>293AE35ED076C5D5E16DA3A33DBB56D7</string>
-				<string>FA226FF40FE5FE6724ECD458CBCD1C8E</string>
-				<string>89F706CA8B401B6EB46E247FA7260ED2</string>
-				<string>EB0F5269117476A68607E31E3C0D5508</string>
-				<string>5F9DE9D4E7805880DD091EB0146A21B9</string>
-				<string>7EAC7D5A99FCBFD5A0F506B5BA462811</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
 		<key>E5E222E3954B7E1A085E4FF1473D8034</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3431,6 +3658,20 @@
 			<string>Pods-SunbeamAFNetworkingService_Tests-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E6ABD28506883F4ECBBBD211D2DA2CD5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6B9206662E27D430632A59328755F63E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>E72E8ADD0ADE2F3BA0CC6CE7CC4EB4E9</key>
 		<dict>
@@ -3468,26 +3709,18 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>E89F325177F16C9B937ACDB5E8501501</key>
+		<key>EC0987C7135EB734237377A77787D891</key>
 		<dict>
-			<key>fileRef</key>
-			<string>9F82FB34833E7AD1253FCEE18DE98777</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>EB0F5269117476A68607E31E3C0D5508</key>
-		<dict>
-			<key>fileRef</key>
-			<string>58D781ED62D0A6AF752307BB802F3F3D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFResponseConstructor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>ED9709DE07C02C05058E6DA218C0A63E</key>
 		<dict>
@@ -3530,77 +3763,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>F325026B55060D3B22BEC0BAB5FA7344</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>POD_CONFIGURATION_RELEASE=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>STRIP_INSTALLED_PRODUCT</key>
-				<string>NO</string>
-				<key>SYMROOT</key>
-				<string>${SRCROOT}/../build</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
 		<key>F4AA159AF0CE99D6CD17FD7AE6575C29</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -3613,19 +3775,6 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>F4B206C5C460048E9723DFAC46E5E116</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SunbeamAFHTTPService.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F5D8920EBADCC27320E0CB450F217614</key>
 		<dict>
@@ -3642,74 +3791,6 @@
 			<string>../..</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F5E09D04BA051BBB908D296AE6752243</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E5E222E3954B7E1A085E4FF1473D8034</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>@executable_path/Frameworks</string>
-					<string>@loader_path/Frameworks</string>
-				</array>
-				<key>MACH_O_TYPE</key>
-				<string>staticlib</string>
-				<key>MODULEMAP_FILE</key>
-				<string>Target Support Files/Pods-SunbeamAFNetworkingService_Example/Pods-SunbeamAFNetworkingService_Example.modulemap</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS</key>
-				<string></string>
-				<key>OTHER_LIBTOOLFLAGS</key>
-				<string></string>
-				<key>PODS_ROOT</key>
-				<string>$(SRCROOT)</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>org.cocoapods.${PRODUCT_NAME:rfc1034identifier}</string>
-				<key>PRODUCT_NAME</key>
-				<string>Pods_SunbeamAFNetworkingService_Example</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
 		</dict>
 		<key>F710B9B751F58727F33992641D5ADAD7</key>
 		<dict>
@@ -3733,20 +3814,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>FA226FF40FE5FE6724ECD458CBCD1C8E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>13EDB490A1F6EF2D429FFF18DBC688B7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Project</string>
-				</array>
-			</dict>
-		</dict>
 		<key>FA32195AB0A960F6C287194DE1141FBC</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3760,7 +3827,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FCFB5D04A6E30FE2509D6D880C80DAD5</key>
+		<key>FC55BF353A85E38C3A0A9B0B52A48DFC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SunbeamAFHTTPService.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FD1F7162869F5E3B0767326523FBBC30</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -3769,7 +3849,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>SunbeamAFNetworkingService.h</string>
+			<string>SunbeamAFServiceFactory.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

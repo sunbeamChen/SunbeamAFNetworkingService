@@ -7,38 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SunbeamAFServiceContext.h"
+#import "SunbeamAFServiceProperty.h"
 
 @interface SunbeamAFRequest : NSObject
 
-// 请求类型
-@property (nonatomic, assign, readonly) SAFRequestType requestType;
+@property (nonatomic, assign) SAF_REQUEST_METHOD requestMethod;
 
-// 请求实例
-@property (nonatomic, strong, readonly) NSMutableURLRequest* request;
+@property (nonatomic, strong) NSMutableURLRequest* request;
 
-// 请求url
-@property (nonatomic, copy, readonly) NSString* urlString;
+@property (nonatomic, copy) NSString* urlString;
 
-// security ssl cer file path
-@property (nonatomic, copy, readonly) NSString* cerFilePath;
+@property (nonatomic, assign) BOOL useSSLCertificates;
 
-// header请求参数
-@property (nonatomic, strong, readonly) NSMutableDictionary* headerParameters;
+@property (nonatomic, strong) NSMutableDictionary* headerParameters;
 
-// url请求参数
-@property (nonatomic, strong, readonly) NSMutableDictionary* urlParameters;
+@property (nonatomic, strong) NSMutableDictionary* urlParameters;
 
-// body请求参数
-@property (nonatomic, strong, readonly) NSMutableDictionary* bodyParameters;
+@property (nonatomic, strong) NSMutableDictionary* bodyParameters;
 
-// download文件保存地址
-@property (nonatomic, copy, readonly) NSString* downloadFileSavePath;
+@property (nonatomic, strong) NSMutableDictionary* uploadFiles;
 
-// upload文件上传地址
-@property (nonatomic, copy, readonly) NSString* uploadFilePath;
+/**
+ SunbeamAFRequest
 
-// 获取请求实例对象
-+ (SunbeamAFRequest *) getSAFRequest:(SAFRequestType) requestType request:(NSMutableURLRequest *) request urlString:(NSString *) urlString cerFilePath:(NSString *) cerFilePath headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath;
+ @param requestMethod 请求方法
+ @param request 请求实例
+ @param urlString 请求url
+ @param useSSLCertificates 是否使用SSL
+ @param headerParameters 请求参数header
+ @param urlParameters 请求参数url
+ @param bodyParameters 请求参数body
+ @param uploadFiles 上传文件字典{'fileKey':'localFilePath'}
+ @return SunbeamAFRequest
+ */
++ (SunbeamAFRequest *) getSAFRequest:(SAF_REQUEST_METHOD) requestMethod request:(NSMutableURLRequest *) request urlString:(NSString *) urlString useSSLCertificates:(BOOL) useSSLCertificates headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters uploadFiles:(NSMutableDictionary *) uploadFiles;
 
 @end

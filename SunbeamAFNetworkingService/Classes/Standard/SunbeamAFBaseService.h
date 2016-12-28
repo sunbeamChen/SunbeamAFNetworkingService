@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @protocol SAFServiceProtocol <NSObject>
-// protocol（https:// or http://）
+
 @property (nonatomic, copy, readonly) NSString* protocol;
-// domain
+
 @property (nonatomic, copy, readonly) NSString* domain;
-// protocol version
+
 @property (nonatomic, copy, readonly) NSString* version;
-// cer file path
-@property (nonatomic, copy, readonly) NSString* cerFilePath;
+
+@property (nonatomic, assign, readonly) BOOL useSSLCertificates;
 
 @end
 
@@ -24,13 +24,17 @@
 
 // child delegate
 @property (nonatomic, weak) id<SAFServiceProtocol> child;
-// protocol（https:// or http://）
+
+// protocol（https://）
 @property (nonatomic, copy, readonly) NSString* protocol;
-// domain
+
+// domain (www.baidu.com)
 @property (nonatomic, copy, readonly) NSString* domain;
-// protocol version（默认该version是在url链接中,header中version通过header params添加）
+
+// protocol version（默认该version是在url链接中,header中version通过header params添加,eg:v1）
 @property (nonatomic, copy, readonly) NSString* version;
-// cer file path
-@property (nonatomic, copy, readonly) NSString* cerFilePath;
+
+// use ssl cer or not
+@property (nonatomic, assign, readonly) BOOL useSSLCertificates;
 
 @end

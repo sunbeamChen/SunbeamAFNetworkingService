@@ -10,19 +10,23 @@
 
 @interface SunbeamAFResponse : NSObject
 
-// 请求id
-@property (nonatomic, assign, readonly) NSInteger requestId;
-// 响应数据
-@property (nonatomic, strong, readonly) id responseData;
-// 文件下载路径
-@property (nonatomic, copy, readonly) NSString* downloadFileSavePath;
-// 文件上传路径
-@property (nonatomic, copy, readonly) NSString* uploadFilePath;
-// 响应错误码
-@property (nonatomic, assign, readonly) NSInteger errorcode;
-// 响应错误信息
-@property (nonatomic, copy, readonly) NSString* message;
-// 获取响应实例
-+ (SunbeamAFResponse *) getSAFResponse:(NSInteger) requestId responseData:(id) responseData downloadFileSavePath:(NSString *) downloadFileSavePath uploadFilePath:(NSString *) uploadFilePath errorcode:(NSInteger) errorcode message:(NSString *) message;
+@property (nonatomic, strong) NSNumber* requestId;
+
+@property (nonatomic, strong) id responseObject;
+
+@property (nonatomic, strong) NSURL* downloadFileUrl;
+
+@property (nonatomic, strong) NSError* error;
+
+/**
+ SunbeamAFResponse
+
+ @param requestId 请求id
+ @param responseObject 请求响应数据
+ @param downloadFileUrl 下载文件本地地址
+ @param error 错误描述
+ @return SunbeamAFResponse
+ */
++ (SunbeamAFResponse *) getSAFResponse:(NSNumber *) requestId responseObject:(id) responseObject downloadFileUrl:(NSURL *) downloadFileUrl error:(NSError *) error;
 
 @end

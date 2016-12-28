@@ -12,11 +12,15 @@
 @interface SunbeamAFRequestGenerator : NSObject
 
 /**
- *  单例
- */
-+ (SunbeamAFRequestGenerator *) sharedSunbeamAFRequestGenerator;
+ Sunbeam AF Request实例
 
-// 产生Sunbeam AF Request实例
-- (SunbeamAFRequest *) generateSAFRequest:(SAFRequestType) requestType serviceIdentifier:(NSString *) serviceIdentifier requestParams:(NSDictionary *) requestParams methodName:(NSString *) methodName;
+ @param requestMethod 请求方法
+ @param identifier 网络请求服务标识
+ @param URI 请求资源定位符
+ @param requestParams 请求参数
+ @param uploadFiles 上传文件字典
+ @return SunbeamAFRequest
+ */
++ (SunbeamAFRequest *) generateSAFRequest:(SAF_REQUEST_METHOD) requestMethod identifier:(NSString *) identifier URI:(NSString *) URI requestParams:(NSDictionary *) requestParams uploadFiles:(NSMutableDictionary *) uploadFiles;
 
 @end

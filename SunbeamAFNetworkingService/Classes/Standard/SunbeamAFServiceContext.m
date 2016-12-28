@@ -10,20 +10,20 @@
 #import "SunbeamAFServiceFactory.h"
 #import <AFNetworking/AFNetworking.h>
 
+typedef void(^NetworkStatusChangeBlock)(SAF_NETWORK_STATUS networkStatus);
+
 @interface SunbeamAFServiceContext()
 
-// 网络是否可达
 @property (nonatomic, assign, readwrite) BOOL networkIsReachable;
-// 当前网络状态
-@property (nonatomic, assign, readwrite) SAFNetworkStatus networkStatus;
+
+@property (nonatomic, assign, readwrite) SAF_NETWORK_STATUS networkStatus;
+
+@property (nonatomic, strong) NetworkStatusChangeBlock networkStatusChangeBlock;
 
 @end
 
 @implementation SunbeamAFServiceContext
 
-/**
- *  单例
- */
 + (SunbeamAFServiceContext *) sharedSunbeamAFServiceContext
 {
     static SunbeamAFServiceContext *sharedInstance = nil;
@@ -34,59 +34,60 @@
     return sharedInstance;
 }
 
-- (instancetype)init
+- (instancetype) init
 {
     if (self = [super init]) {
-        // 初始化网络监听
-        [self initNetworkService];
-    }
-    return self;
-}
-
-// 初始化网络服务
-- (void) initNetworkService
-{
-    self.networkStatus = SAFNetworkStatusUnknown;
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown:
-                self.networkStatus = SAFNetworkStatusUnknown;
-                break;
-            case AFNetworkReachabilityStatusNotReachable:
-                self.networkStatus = SAFNetworkStatusNotReachable;
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                self.networkStatus = SAFNetworkStatusReachableViaWWAN;
-                break;
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                self.networkStatus = SAFNetworkStatusReachableViaWiFi;
-                break;
-            default:
-                break;
-        }
-        @synchronized(self)
-        {
-            NSNotification *notificationPost = [NSNotification notificationWithName:SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME object:self userInfo:nil];
+        self.networkStatus = UNKNOWN;
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+        __weak __typeof__(self) weakSelf = self;
+        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            __strong __typeof__(weakSelf) strongSelf = weakSelf;
+            switch (status) {
+                case AFNetworkReachabilityStatusUnknown:
+                    strongSelf.networkStatus = UNKNOWN;
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                    strongSelf.networkStatus = NOT_REACHABLE;
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                    strongSelf.networkStatus = REACHABLE_VIA_WWAN;
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    strongSelf.networkStatus = REACHABLE_VIA_WIFI;
+                    break;
+                default:
+                    break;
+            }
+            NSNotification *notificationPost = [NSNotification notificationWithName:SAF_NETWORK_STATUS_CHANGED_NOTIFICATION_NAME object:strongSelf userInfo:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotification:notificationPost];
             });
-        }
-    }];
-}
-
-// 设置service factory 代理
-- (void) setSAFServiceFactoryDelegate:(id<SAFServiceFactoryProtocol>) serviceFactoryDelegate
-{
-    [SunbeamAFServiceFactory sharedSunbeamAFServiceFactory].delegate = serviceFactoryDelegate;
-}
-
-- (BOOL)networkIsReachable
-{
-    if (self.networkStatus == SAFNetworkStatusUnknown) {
-        return YES;
+            if (strongSelf.networkStatusChangeBlock) {
+                strongSelf.networkStatusChangeBlock(strongSelf.networkStatus);
+            }
+        }];
     }
-    return [[AFNetworkReachabilityManager sharedManager] isReachable];
+    
+    return self;
+}
+
+- (void) setSAFServiceFactoryDelegate:(id<SAFServiceFactoryProtocol>)SAFServiceFactoryDelegate
+{
+    [SunbeamAFServiceFactory sharedSunbeamAFServiceFactory].delegate = SAFServiceFactoryDelegate;
+}
+
+- (void) startListenNetworkStatusChange:(void(^)(SAF_NETWORK_STATUS networkStatus)) networkStatusChangeBlock
+{
+    self.networkStatusChangeBlock = networkStatusChangeBlock;
+}
+
+- (BOOL) networkIsReachable
+{
+    if (self.networkStatus == NOT_REACHABLE) {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

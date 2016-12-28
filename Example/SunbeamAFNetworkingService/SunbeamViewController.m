@@ -7,6 +7,9 @@
 //
 
 #import "SunbeamViewController.h"
+#import <SunbeamAFNetworkingService/SunbeamAFNetworkingService.h>
+#import "SLAFTestServiceFactory.h"
+#import "CheckUsernameManager.h"
 
 @interface SunbeamViewController ()
 
@@ -17,7 +20,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [SunbeamAFServiceContext sharedSunbeamAFServiceContext].timeoutInterval = 5.0;
+    [[SLAFTestServiceFactory sharedSLAFTestServiceFactory] initSLAFTestServiceFactory];
+    
+    [[[CheckUsernameManager alloc] initCheckUsernameManager:@"15860746397"] loadDataTask:^(NSString *identifier, id responseObject, NSError *error) {
+        NSLog(@"请求响应返回，identifier：%@，responseObject：%@，error：%@", identifier, responseObject, error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

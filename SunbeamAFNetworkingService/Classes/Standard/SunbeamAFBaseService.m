@@ -7,7 +7,6 @@
 //
 
 #import "SunbeamAFBaseService.h"
-#import "SunbeamAFServiceContext.h"
 
 @implementation SunbeamAFBaseService
 
@@ -36,9 +35,9 @@
     return self.child.version;
 }
 
-- (NSString *)cerFilePath
+- (BOOL)useSSLCertificates
 {
-    return self.child.cerFilePath;
+    return self.child.useSSLCertificates;
 }
 
 @end
