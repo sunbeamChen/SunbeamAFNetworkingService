@@ -100,10 +100,11 @@
 /**
  下载请求入口
 
+ @param downloadUrl 下载地址
  @param downloadProgress 下载进程
  @param completion 回调
  @return 请求id
  */
-- (NSNumber *) loadDownloadTask:(NSProgress * __nullable __autoreleasing * __nullable) downloadProgress completion:(void(^)(NSString* identfier, NSURL* downloadFileurl, NSError* error)) completion;
+- (NSNumber *) loadDownloadTask:(NSString *) downloadUrl downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable) downloadProgress completion:(void(^)(NSString* identfier, NSURL* downloadFileurl, NSError* error)) completion;
 
 @end

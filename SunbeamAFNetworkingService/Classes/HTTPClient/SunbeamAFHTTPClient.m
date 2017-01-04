@@ -35,7 +35,7 @@
 
 - (NSNumber *)loadDataTask:(NSString *)URI identifier:(NSString *)identifier method:(SAF_REQUEST_METHOD)method params:(NSDictionary *)params completion:(void (^)(SunbeamAFResponse *))completion
 {
-    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:nil];
+    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:nil downloadUrl:nil];
     NSNumber* requestId = [self generateRequestId];
     NSLog(@"\n==========================================begin>>>https GET/POST请求序号:%@\nhttps GET/POST请求url：%@\nhttps GET/POST请求header：%@\nhttps GET/POST请求body：%@", requestId, request.urlString, request.request.allHTTPHeaderFields, [[NSString alloc] initWithData:request.request.HTTPBody encoding:NSUTF8StringEncoding]);
     self.sessionTaskQueue[requestId] = [[[SunbeamAFHTTPService alloc] init] loadDataTask:request completion:^(NSURLResponse *response, id responseObject, NSError *error) {
@@ -62,7 +62,7 @@
 
 - (NSNumber *)loadUploadTask:(NSString *)URI identifier:(NSString *)identifier method:(SAF_REQUEST_METHOD)method params:(NSDictionary *)params uploadFiles:(NSMutableDictionary *) uploadFiles uploadProgress:(NSProgress * __nullable __autoreleasing * __nullable)uploadProgress completion:(void (^)(SunbeamAFResponse *))completion
 {
-    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:uploadFiles];
+    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:uploadFiles downloadUrl:nil];
     NSNumber* requestId = [self generateRequestId];
     self.sessionTaskQueue[requestId] = [[[SunbeamAFHTTPService alloc] init] loadUploadTask:request uploadProgress:uploadProgress completion:^(NSURLResponse *response, id responseObject, NSError *error) {
         NSURLSessionDataTask* dataTask = self.sessionTaskQueue[requestId];
@@ -78,9 +78,9 @@
     return requestId;
 }
 
-- (NSNumber *)loadDownloadTask:(NSString *)URI identifier:(NSString *)identifier method:(SAF_REQUEST_METHOD)method params:(NSDictionary *)params downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(SunbeamAFResponse *))completion
+- (NSNumber *)loadDownloadTask:(NSString *)URI identifier:(NSString *)identifier method:(SAF_REQUEST_METHOD)method params:(NSDictionary *)params downloadUrl:(NSString *) downloadUrl downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(SunbeamAFResponse *))completion
 {
-    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:nil];
+    SunbeamAFRequest* request = [SunbeamAFRequestGenerator generateSAFRequest:method identifier:identifier URI:URI requestParams:params uploadFiles:nil downloadUrl:downloadUrl];
     NSNumber* requestId = [self generateRequestId];
     self.sessionTaskQueue[requestId] = [[[SunbeamAFHTTPService alloc] init] loadDownloadTask:request downloadProgress:downloadProgress completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         NSURLSessionDataTask* dataTask = self.sessionTaskQueue[requestId];

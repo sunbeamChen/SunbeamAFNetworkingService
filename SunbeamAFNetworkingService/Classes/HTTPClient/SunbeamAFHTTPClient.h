@@ -10,7 +10,7 @@
 #import "SunbeamAFServiceProperty.h"
 #import "SunbeamAFResponse.h"
 
-#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.15"
+#define SUNBEAM_AFNETWORKING_SERVICE_VERSION @"0.2.16"
 
 @interface SunbeamAFHTTPClient : NSObject
 
@@ -56,11 +56,12 @@
  @param identifier 标识
  @param method 方法
  @param params 参数
+ @param downloadUrl 下载地址
  @param downloadProgress 下载进程
  @param completion 回调
  @return 请求id
  */
-- (NSNumber *) loadDownloadTask:(NSString *) URI identifier:(NSString *) identifier method:(SAF_REQUEST_METHOD) method params:(NSDictionary *) params downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(SunbeamAFResponse* response)) completion;
+- (NSNumber *) loadDownloadTask:(NSString *) URI identifier:(NSString *) identifier method:(SAF_REQUEST_METHOD) method params:(NSDictionary *) params downloadUrl:(NSString *) downloadUrl downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable)downloadProgress completion:(void (^)(SunbeamAFResponse* response)) completion;
 
 /**
  取消所有网络请求

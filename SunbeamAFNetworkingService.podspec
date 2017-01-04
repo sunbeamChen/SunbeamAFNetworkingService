@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SunbeamAFNetworkingService'
-  s.version          = '0.2.15'
+  s.version          = '0.2.16'
   s.summary          = 'SunbeamAFNetworkingService is a simple structure base on AFNetworking 2.6.3'
 
   s.homepage         = 'https://github.com/sunbeamChen/SunbeamAFNetworkingService'

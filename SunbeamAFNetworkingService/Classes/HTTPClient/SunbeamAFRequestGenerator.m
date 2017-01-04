@@ -35,7 +35,7 @@
     return httpRequestSerializer;
 }
 
-+ (SunbeamAFRequest *)generateSAFRequest:(SAF_REQUEST_METHOD)requestMethod identifier:(NSString *)identifier URI:(NSString *)URI requestParams:(NSDictionary *)requestParams uploadFiles:(NSMutableDictionary *)uploadFiles
++ (SunbeamAFRequest *)generateSAFRequest:(SAF_REQUEST_METHOD)requestMethod identifier:(NSString *)identifier URI:(NSString *)URI requestParams:(NSDictionary *)requestParams uploadFiles:(NSMutableDictionary *)uploadFiles downloadUrl:(NSString *)downloadUrl
 {
     SunbeamAFBaseService* service = [[SunbeamAFServiceFactory sharedSunbeamAFServiceFactory] getSAFService:identifier];
     
@@ -64,7 +64,7 @@
         }
         case DOWNLOAD:
         {
-            mutableRequest = [[self getHttpRequestSerializer] requestWithMethod:@"GET" URLString:urlString parameters:nil error:nil];
+            mutableRequest = [[self getHttpRequestSerializer] requestWithMethod:@"GET" URLString:downloadUrl parameters:nil error:nil];
             break;
         }
         case UPLOAD:
@@ -87,7 +87,7 @@
         }
     }
     
-    return [SunbeamAFRequest getSAFRequest:requestMethod request:mutableRequest urlString:urlString useSSLCertificates:service.useSSLCertificates headerParameters:headerParams urlParameters:urlParams bodyParameters:bodyParams uploadFiles:uploadFiles];
+    return [SunbeamAFRequest getSAFRequest:requestMethod request:mutableRequest urlString:urlString useSSLCertificates:service.useSSLCertificates headerParameters:headerParams urlParameters:urlParams bodyParameters:bodyParams uploadFiles:uploadFiles downloadUrl:downloadUrl];
 }
 
 @end

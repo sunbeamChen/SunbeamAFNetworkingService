@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary* uploadFiles;
 
+@property (nonatomic, copy) NSString* downloadUrl;
+
 /**
  SunbeamAFRequest
 
@@ -38,8 +40,9 @@
  @param urlParameters 请求参数url
  @param bodyParameters 请求参数body
  @param uploadFiles 上传文件字典{'fileKey':'localFilePath'}
+ @param downloadUrl 下载地址
  @return SunbeamAFRequest
  */
-+ (SunbeamAFRequest *) getSAFRequest:(SAF_REQUEST_METHOD) requestMethod request:(NSMutableURLRequest *) request urlString:(NSString *) urlString useSSLCertificates:(BOOL) useSSLCertificates headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters uploadFiles:(NSMutableDictionary *) uploadFiles;
++ (SunbeamAFRequest *) getSAFRequest:(SAF_REQUEST_METHOD) requestMethod request:(NSMutableURLRequest *) request urlString:(NSString *) urlString useSSLCertificates:(BOOL) useSSLCertificates headerParameters:(NSMutableDictionary *) headerParameters urlParameters:(NSMutableDictionary *) urlParameters bodyParameters:(NSMutableDictionary *) bodyParameters uploadFiles:(NSMutableDictionary *) uploadFiles downloadUrl:(NSString *) downloadUrl;
 
 @end

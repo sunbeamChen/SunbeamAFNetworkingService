@@ -21,6 +21,6 @@
  @param uploadFiles 上传文件字典
  @return SunbeamAFRequest
  */
-+ (SunbeamAFRequest *) generateSAFRequest:(SAF_REQUEST_METHOD) requestMethod identifier:(NSString *) identifier URI:(NSString *) URI requestParams:(NSDictionary *) requestParams uploadFiles:(NSMutableDictionary *) uploadFiles;
++ (SunbeamAFRequest *) generateSAFRequest:(SAF_REQUEST_METHOD) requestMethod identifier:(NSString *) identifier URI:(NSString *) URI requestParams:(NSDictionary *) requestParams uploadFiles:(NSMutableDictionary *) uploadFiles downloadUrl:(NSString *) downloadUrl;
 
 @end

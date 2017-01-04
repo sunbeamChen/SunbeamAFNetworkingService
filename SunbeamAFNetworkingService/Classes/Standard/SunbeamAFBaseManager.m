@@ -137,7 +137,7 @@
     }
 }
 
-- (NSNumber *) loadDownloadTask:(NSProgress * __nullable __autoreleasing * __nullable) downloadProgress completion:(void(^)(NSString* identfier, NSURL* downloadFileurl, NSError* error)) completion
+- (NSNumber *) loadDownloadTask:(NSString *) downloadUrl downloadProgress:(NSProgress * __nullable __autoreleasing * __nullable) downloadProgress completion:(void(^)(NSString* identfier, NSURL* downloadFileurl, NSError* error)) completion
 {
     NSError* error = [self beforeRequest];
     if (error != nil) {
@@ -153,7 +153,7 @@
 
     __weak __typeof__(self) weakSelf = self;
     if (self.childManager.method == DOWNLOAD) {
-        return [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadDownloadTask:self.childManager.URI identifier:self.childManager.identifier method:self.childManager.method params:params downloadProgress:downloadProgress completion:^(SunbeamAFResponse *response) {
+        return [[SunbeamAFHTTPClient sharedSunbeamAFHTTPClient] loadDownloadTask:self.childManager.URI identifier:self.childManager.identifier method:self.childManager.method params:params downloadUrl:downloadUrl downloadProgress:downloadProgress completion:^(SunbeamAFResponse *response) {
             __strong __typeof__(weakSelf) strongSelf = weakSelf;
             if (response.error == nil) {
                 completion(strongSelf.childManager.identifier, response.downloadFileUrl, nil);
